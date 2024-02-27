@@ -1,0 +1,150 @@
+[
+    {
+      "id": 1,
+      "name": "G&G CM16 Raider",
+      "description": "De G&G CM16 Raider is een populair instapmodel airsoftgeweer, bekend om zijn betrouwbaarheid en betaalbaarheid.",
+      "fps": 350,
+      "fullAuto": true,
+      "releasedate": "06/05/2016",
+      "imageURL": "https://example.com/gg_cm16_raider.jpg",
+      "type": "AEG",
+      "hobbies": ["outdoor", "outdoor"],
+      "manufacturer": 101
+    },
+    {
+      "id": 2,
+      "name": "Tokyo Marui Hi-Capa 5.1",
+      "description": "De Tokyo Marui Hi-Capa 5.1 is een hoogwaardige gasblowbackpistool, bekend om zijn realistische prestaties en constructie.",
+      "fps": 300,
+      "fullAuto": false,
+      "releasedate": "04/08/2017",
+      "imageURL": "https://example.com/tokyo_marui_glock17.jpg",
+      "type": "GBB",
+      "hobbies": ["CQB", "pistoolwedstrijden"],
+      "manufacturer": 102
+    },
+    {
+        "id": 3,
+        "name": "Wolverine MTW Billet",
+        "description": "De Wolverine MTW Billet is een veelzijdig airsoftgeweer geschikt voor verschillende speelstijlen. Het biedt betrouwbare prestaties en is ontworpen voor gebruik met HPA-systemen.",
+        "fps": 370,
+        "fullAuto": true,
+        "releasedate": "25/12/2020",
+        "imageURL": "https://example.com/wolverine_mtw_billet.jpg",
+        "type": "HPA",
+        "hobbies": ["CQB", "outdoor"],
+        "manufacturer": 103
+      }
+      
+    {
+      "id": 4,
+      "name": "ssp5",
+      "description": "De ssp5 van Novritsch is een hoogwaardig airsoftpistool, ontworpen voor precisie en prestaties. Het is ideaal voor zowel beginners als ervaren spelers.",
+      "fps": 350,
+      "fullAuto": false,
+      "releasedate": "12/05/2020",
+      "imageURL": "https://example.com/ssp5_novritsch.jpg",
+      "type": "gbb",
+      "hobbies": ["CQB", "pistoolwedstrijden"],
+      "manufacturer": 104
+
+    },
+    {
+      "id": 5,
+      "name": "Amoeba Striker AS02",
+      "description": "De Amoeba Striker AS02 is een high-end bolt-action airsoft sniper rifle, ontworpen voor precisie en langeafstandsschieten. Het is geschikt voor zowel beginners als ervaren spelers.",
+      "fps": 450,
+      "fullAuto": false,
+      "releasedate": "23.02/2018",
+      "imageURL": "https://example.com/amoeba_striker_as02.jpg",
+      "type": "spring",
+      "hobbies": ["outdoor", "milsim"],
+      "manufacturer": 109
+    },
+    {
+      "id": 6,
+      "name": "VFC Avalon Saber",
+      "description": "De VFC Avalon Saber is een high-performance airsoftgeweer ontworpen voor competitief spel, met een volledig metalen constructie en elektronische trekkereenheid.",
+      "fps": 380,
+      "fullAuto": true,
+      "releasedate": "30/05/2016",
+      "imageURL": "https://example.com/vfc_avalon_saber.jpg",
+      "type": "AEG",
+      "hobbies": ["milsim", "outdoor"],
+      "manufacturer": 106
+    },
+    {
+      "id": 7,
+      "name": "Elite Force 1911 Tac",
+      "description": "De Elite Force 1911 Tac is een CO2-aangedreven airsoftpistool gemodelleerd naar de iconische Colt 1911, met een volledig metalen constructie en tactische accessoires.",
+      "fps": 330,
+      "releasedate": false,
+      "caliber": "12/06/2016",
+      "imageURL": "https://example.com/elite_force_1911_tac.jpg",
+      "type": "CO2",
+      "hobbies": ["CQB", "milsim"],
+      "manufacturer": 107
+    },
+    {
+      "id": 8,
+      "name": "Krytac Trident MK2 CRB",
+      "description": "De Krytac Trident MK2 CRB is een high-end airsoftgeweer bekend om zijn prestaties direct uit de doos, met een versterkte gearbox en MOSFET-systeem.",
+      "fps": 380,
+      "fullAuto": true,
+      "releasedate": "29/04/2019",
+      "imageURL": "https://example.com/krytac_trident_mk2_crb.jpg",
+      "type": "AEG",
+      "hobbies": ["outdoor", "CQB"],
+      "manufacturer": 108
+    },
+    {
+      "id": 9,
+      "name": "Ares Amoeba AM-013",
+      "description": "De Ares Amoeba AM-013 is een compact airsoftgeweer met een elektronische trekkereenheid en lichtgewicht polymeer constructie, ideaal voor close quarters combat.",
+      "fps": 350,
+      "fullAuto": true,
+      "releasedate": "02/10/2018",
+      "imageURL": "https://example.com/ares_amoeba_am013.jpg",
+      "type": "AEG",
+      "hobbies": ["CQB", "outdoor"],
+      "manufacturer": 109
+    },
+    {
+        "id": 10,
+        "name": "Specna Arms 2.0",
+        "description": "De Specna Arms 2.0 is een geavanceerd airsoftgeweer met verbeterde prestaties en betrouwbaarheid. Het is ontworpen voor zowel beginners als ervaren spelers.",
+        "fps": 370,
+        "fullAuto": true,
+        "releasedate": "28/10/2022",
+        "imageURL": "https://example.com/specna_arms_2.0.jpg",
+        "type": "AEG",
+        "hobbies": ["milsim", "outdoor"],
+        "manufacturer": 110
+      },
+      {
+        "id": 11,
+        "name": "Tokyo Marui VSR-10",
+        "description": "De Tokyo Marui VSR-10 is een populaire bolt-action sniper rifle, bekend om zijn precisie en betrouwbaarheid. Het is een favoriet onder airsoftsnipers.",
+        "fps": 450,
+        "fullAuto": false,
+        "releasedate": "24/06/2015",
+        "imageURL": "https://example.com/tokyo_marui_vsr10.jpg",
+        "type": "spring",
+        "hobbies": ["outdoor", "milsim"],
+        "manufacturer": 102
+      },      
+      {
+        "id": 12,
+        "name": "Krytac P90",
+        "description": "De Krytac P90 is een compact en wendbaar airsoftgeweer, ontworpen voor CQB-situaties. Het biedt betrouwbare prestaties en een uniek ontwerp.",
+        "fps": 350,
+        "fullAuto": true,
+        "releasedate": "02/06/2021",
+        "imageURL": "https://example.com/krytac_p90.jpg",
+        "type": "AEG",
+        "hobbies": ["CQB", "milsim"],
+        "manufacturer": 108
+      }
+      
+  ]
+  
