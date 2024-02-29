@@ -6,7 +6,7 @@
       "fps": 350,
       "fullAuto": true,
       "releasedate": "06/05/2016",
-      "imageURL": "/workspaces/Terminal-App/project1_webontw/g&g_raider.jpg",
+      "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/g%26g_raider.jpg",
       "type": "AEG",
       "hobbies": ["outdoor", "outdoor"],
       "manufacturer": 101
@@ -18,7 +18,7 @@
       "fps": 300,
       "fullAuto": false,
       "releasedate": "04/08/2017",
-      "imageURL": "https://example.com/tokyo_marui_glock17.jpg",
+      "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/hi-capa.jpg",
       "type": "GBB",
       "hobbies": ["CQB", "pistoolwedstrijden"],
       "manufacturer": 102
@@ -30,7 +30,7 @@
         "fps": 370,
         "fullAuto": true,
         "releasedate": "25/12/2020",
-        "imageURL": "https://example.com/wolverine_mtw_billet.jpg",
+        "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/mtw_billet.jpg",
         "type": "HPA",
         "hobbies": ["CQB", "outdoor"],
         "manufacturer": 103
@@ -43,7 +43,7 @@
       "fps": 350,
       "fullAuto": false,
       "releasedate": "12/05/2020",
-      "imageURL": "https://example.com/ssp5_novritsch.jpg",
+      "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/ssp5.png",
       "type": "gbb",
       "hobbies": ["CQB", "pistoolwedstrijden"],
       "manufacturer": 104
@@ -56,7 +56,7 @@
       "fps": 450,
       "fullAuto": false,
       "releasedate": "23.02/2018",
-      "imageURL": "https://example.com/amoeba_striker_as02.jpg",
+      "imageURL": "https://raw.githubusercontent.com/jef350/Terminal-App/main/images/amoeba_striker.jpg",
       "type": "spring",
       "hobbies": ["outdoor", "milsim"],
       "manufacturer": 109
@@ -68,7 +68,7 @@
       "fps": 380,
       "fullAuto": true,
       "releasedate": "30/05/2016",
-      "imageURL": "https://example.com/vfc_avalon_saber.jpg",
+      "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/vfc_avalon.jpg",
       "type": "AEG",
       "hobbies": ["milsim", "outdoor"],
       "manufacturer": 106
@@ -80,7 +80,7 @@
       "fps": 330,
       "releasedate": false,
       "caliber": "12/06/2016",
-      "imageURL": "https://example.com/elite_force_1911_tac.jpg",
+      "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/1911_tac.jpg",
       "type": "CO2",
       "hobbies": ["CQB", "milsim"],
       "manufacturer": 107
@@ -92,7 +92,7 @@
       "fps": 380,
       "fullAuto": true,
       "releasedate": "29/04/2019",
-      "imageURL": "https://example.com/krytac_trident_mk2_crb.jpg",
+      "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/krytac_trident.jpg",
       "type": "AEG",
       "hobbies": ["outdoor", "CQB"],
       "manufacturer": 108
@@ -104,7 +104,7 @@
       "fps": 350,
       "fullAuto": true,
       "releasedate": "02/10/2018",
-      "imageURL": "https://example.com/ares_amoeba_am013.jpg",
+      "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/am-013.jpg",
       "type": "AEG",
       "hobbies": ["CQB", "outdoor"],
       "manufacturer": 109
@@ -116,7 +116,7 @@
         "fps": 370,
         "fullAuto": true,
         "releasedate": "28/10/2022",
-        "imageURL": "https://example.com/specna_arms_2.0.jpg",
+        "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/specna-arms.webp",
         "type": "AEG",
         "hobbies": ["milsim", "outdoor"],
         "manufacturer": 110
@@ -128,7 +128,7 @@
         "fps": 450,
         "fullAuto": false,
         "releasedate": "24/06/2015",
-        "imageURL": "https://example.com/tokyo_marui_vsr10.jpg",
+        "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/vsr-10.webp",
         "type": "spring",
         "hobbies": ["outdoor", "milsim"],
         "manufacturer": 102
@@ -140,7 +140,7 @@
         "fps": 350,
         "fullAuto": true,
         "releasedate": "02/06/2021",
-        "imageURL": "https://example.com/krytac_p90.jpg",
+        "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/p90.jpg",
         "type": "AEG",
         "hobbies": ["CQB", "milsim"],
         "manufacturer": 108
