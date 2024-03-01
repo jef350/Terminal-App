@@ -1,3 +1,4 @@
+
 [
     {
       "id": 1,
@@ -9,7 +10,7 @@
       "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/g%26g_raider.jpg",
       "type": "AEG",
       "hobbies": ["outdoor", "outdoor"],
-      "manufacturer": 101
+      "manufacturer": 0
     },
     {
       "id": 2,
@@ -21,7 +22,7 @@
       "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/hi-capa.jpg",
       "type": "GBB",
       "hobbies": ["CQB", "pistoolwedstrijden"],
-      "manufacturer": 102
+      "manufacturer": 1
     },
     {
         "id": 3,
@@ -33,9 +34,8 @@
         "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/mtw_billet.jpg",
         "type": "HPA",
         "hobbies": ["CQB", "outdoor"],
-        "manufacturer": 103
-      }
-      
+        "manufacturer": 2
+      },  
     {
       "id": 4,
       "name": "ssp5",
@@ -46,7 +46,7 @@
       "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/ssp5.png",
       "type": "gbb",
       "hobbies": ["CQB", "pistoolwedstrijden"],
-      "manufacturer": 104
+      "manufacturer": 3
 
     },
     {
@@ -59,7 +59,7 @@
       "imageURL": "https://raw.githubusercontent.com/jef350/Terminal-App/main/images/amoeba_striker.jpg",
       "type": "spring",
       "hobbies": ["outdoor", "milsim"],
-      "manufacturer": 109
+      "manufacturer": 8
     },
     {
       "id": 6,
@@ -71,19 +71,19 @@
       "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/vfc_avalon.jpg",
       "type": "AEG",
       "hobbies": ["milsim", "outdoor"],
-      "manufacturer": 106
+      "manufacturer": 5
     },
     {
       "id": 7,
       "name": "Elite Force 1911 Tac",
       "description": "De Elite Force 1911 Tac is een CO2-aangedreven airsoftpistool gemodelleerd naar de iconische Colt 1911, met een volledig metalen constructie en tactische accessoires.",
       "fps": 330,
-      "releasedate": false,
-      "caliber": "12/06/2016",
+      "fullAuto": false,
+      "releasedate": "12/06/2016",
       "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/1911_tac.jpg",
       "type": "CO2",
       "hobbies": ["CQB", "milsim"],
-      "manufacturer": 107
+      "manufacturer": 6
     },
     {
       "id": 8,
@@ -95,7 +95,7 @@
       "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/krytac_trident.jpg",
       "type": "AEG",
       "hobbies": ["outdoor", "CQB"],
-      "manufacturer": 108
+      "manufacturer": 7
     },
     {
       "id": 9,
@@ -107,7 +107,7 @@
       "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/am-013.jpg",
       "type": "AEG",
       "hobbies": ["CQB", "outdoor"],
-      "manufacturer": 109
+      "manufacturer": 8
     },
     {
         "id": 10,
@@ -119,7 +119,7 @@
         "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/specna-arms.webp",
         "type": "AEG",
         "hobbies": ["milsim", "outdoor"],
-        "manufacturer": 110
+        "manufacturer": 9
       },
       {
         "id": 11,
@@ -131,7 +131,7 @@
         "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/vsr-10.webp",
         "type": "spring",
         "hobbies": ["outdoor", "milsim"],
-        "manufacturer": 102
+        "manufacturer": 1
       },      
       {
         "id": 12,
@@ -143,7 +143,7 @@
         "imageURL": "https://github.com/jef350/Terminal-App/raw/04b7de9fb92f6e74fd8e64d2ad4936888e497035/images/p90.jpg",
         "type": "AEG",
         "hobbies": ["CQB", "milsim"],
-        "manufacturer": 108
+        "manufacturer": 7
       }
       
   ]
