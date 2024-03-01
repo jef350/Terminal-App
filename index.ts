@@ -14,13 +14,11 @@ console.log(`2. Filter by ID`);
 console.log(`3. Exit`); 
 let choice = readline.questionInt("please enter your choice: ");
 
-let test;
+let test ;
 
 
 switch (choice) {
     case 1:
-
-        
 
             for (let i = 0; i < data.length; i++) {
             for (let j = 0; j < arr.length; j++) {
@@ -35,7 +33,7 @@ switch (choice) {
                 type: data[i].type,
                 hobbies: data[i].hobbies,
                 manufacturer: arr[data[i].manufacturer]
-            };  
+            }; 
            }
            console.log(test);
           }
