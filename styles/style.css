@@ -1,0 +1,11 @@
+.test{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    width: 5rem;
+}
+
+.test div{
+    width: 5rem;
+}

@@ -8,7 +8,7 @@ export interface airsoft{
     imageURL: string,
     type: string,
     hobbies: string[],
-    manufacturer: manufacturer;
+    manufacturer: number;
 }
 
 export interface manufacturer{
