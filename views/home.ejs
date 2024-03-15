@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="styles.style.css">
 </head>
 <body>
+    <header>
+        <form action="/" method="get">
+            <label for="search">Search for a name:</label>
+            <input type="text" id="search" name="q" value="<%= q %>">
+            <button type="submit">Search</button>
+        </form>
+    </header>
+
+    <aside>
+        <a href="">home</a>
+        <a href="">merken</a>
+    </aside>
+
+    <main>
     <form action="/" method="get">
         <select name="sortField">
             <option value="name" <%= sortField === 'name' ? 'selected' : '' %>>Name</option>
@@ -19,11 +33,22 @@
         <button type="submit">Sort</button>
     </form>
     <section class="test">
-    <% for (let person of data) { %>
+        <% for (let item of data) { %>
+            <section>
+                <div> <img src="<%= item.imageURL %>" width="200px" height="200px" alt=""> </div> <div> <%= item.name %></div> 
+                <div>(<%= item.fps %>)</div> 
+                <div><%= item.type %></div>
+                <div><p><%= item.fullAuto %></p></div>  
+                <div><%= item.playtypes %></div> 
+            </section>    
+        <% } %>
         
-            <div><%= person.name %></div> 
-             <div>(<%= person.fps %>)</div>        
-    <% } %>
 </section>
+</main>
+
+<footer>
+
+</footer>
+
 </body>
 </html>
