@@ -1,11 +1,26 @@
-.test{
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: auto;
-    margin-right: auto;
-    width: 5rem;
+*{
+    box-sizing: border-box;
 }
 
-.test div{
-    width: 5rem;
+html, body{
+    margin: 0;
+    padding: 0;
 }
+
+body{
+    display: grid;
+    grid-template-areas: 
+    'aside header'
+    'aside main'
+    'footer footer';
+    grid-gap: -1px;
+    font-family: sans-serif;
+    font-style: normal;
+    max-width: 100%;
+}
+
+header{grid-area: header;}
+aside{grid-area: aside;}
+main{grid-area: main;}
+footer{grid-area: footer;}
+

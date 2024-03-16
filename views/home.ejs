@@ -1,30 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.style.css">
-</head>
-<body>
-    <header>
-        <form action="/" method="get">
-            <label for="search">Search for a name:</label>
-            <input type="text" id="search" name="q" value="<%= q %>">
-            <button type="submit">Search</button>
-        </form>
-    </header>
-
-    <aside>
-        <a href="">home</a>
-        <a href="">merken</a>
-    </aside>
+<%- include('partials/header'); %>
+<%- include('partials/aside'); %>
 
     <main>
     <form action="/" method="get">
         <select name="sortField">
             <option value="name" <%= sortField === 'name' ? 'selected' : '' %>>Name</option>
             <option value="fps" <%= sortField === 'fps' ? 'selected' : '' %>>fps</option>
+            <option value="date" <%= sortField === 'date' ? 'selected' : '' %>>date</option>
         </select>
         <select name="sortDirection">
             <option value="asc" <%= sortDirection === 'asc' ? 'selected' : '' %>>Ascending</option>
@@ -35,20 +17,15 @@
     <section class="test">
         <% for (let item of data) { %>
             <section>
-                <div> <img src="<%= item.imageURL %>" width="200px" height="200px" alt=""> </div> <div> <%= item.name %></div> 
-                <div>(<%= item.fps %>)</div> 
+                <div> <img src="<%= item.imageURL %>"  alt=""> </div> <div> <%= item.name %></div> 
+                <div><%= item.fps %></div> 
                 <div><%= item.type %></div>
-                <div><p><%= item.fullAuto %></p></div>  
                 <div><%= item.playtypes %></div> 
+                <div><%= item.releasedate %></div>
             </section>    
         <% } %>
         
 </section>
 </main>
 
-<footer>
-
-</footer>
-
-</body>
-</html>
+<%- include('partials/footer'); %>

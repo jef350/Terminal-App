@@ -18,7 +18,7 @@ app.set("port", 3000);
 app.get('/', (req, res) => {
     let q: string = req.query.q ? req.query.q.toString() : ''; 
     let filteredItems: airsoft[] = data.filter((data) => {
-        return data.name.toLowerCase().startsWith(q.toLowerCase()); 
+        return data.name.toLowerCase().includes(q.toLowerCase()); 
     });
 
     const sortField = typeof req.query.sortField === "string" ? req.query.sortField : "name";
@@ -29,6 +29,10 @@ app.get('/', (req, res) => {
             return sortDirection === "asc" ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
         } else if (sortField === "fps") {
             return sortDirection === "asc" ? a.fps - b.fps : b.fps - a.fps;
+        }else if (sortField === "date") {
+            const dateA = new Date(a.releasedate);
+            const dateB = new Date(b.releasedate);
+            return sortDirection === "asc" ? dateA.getTime() - dateB.getTime() : dateB.getTime() - dateA.getTime();
         } else {
             return 0;
         }
@@ -42,10 +46,4 @@ app.get('/', (req, res) => {
     });
 });
 
-
-
-
-
-
-  
   app.listen(app.get('port'), ()=>console.log( '[server] http://localhost:' + app.get('port')));
