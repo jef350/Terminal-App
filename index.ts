@@ -1,16 +1,20 @@
 import { text } from "stream/consumers";
-import data from "./assets/airsoft.json";
-import arr from "./assets/Manufacturer.json";
+import data from "./data/airsoft.json";
+import arr from "./data/Manufacturer.json";
 import { airsoft, manufacturer } from './interfaces';
 import * as readline from 'readline-sync';
 
 import express from "express";
 import ejs, { name } from "ejs";
 
+
 const app = express();
 
+app.use(express.static("public"));
 app.set("view engine", "ejs"); 
 app.set("port", 3000);
+
+
 
 
 

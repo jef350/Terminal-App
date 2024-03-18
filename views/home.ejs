@@ -17,11 +17,12 @@
     <section class="test">
         <% for (let item of data) { %>
             <section>
-                <div> <img src="<%= item.imageURL %>"  alt=""> </div> <div> <%= item.name %></div> 
+                 
                 <div><%= item.fps %></div> 
                 <div><%= item.type %></div>
                 <div><%= item.playtypes %></div> 
                 <div><%= item.releasedate %></div>
+                <br>
             </section>    
         <% } %>
         
