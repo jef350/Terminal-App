@@ -14,16 +14,16 @@
         </select>
         <button type="submit">Sort</button>
     </form>
-    <section class="test">
+    <section class="items">
         <% for (let item of data) { %>
-            <section>
-                <div> <img src="<%= item.imageURL %>"  alt=""> </div> <div> <%= item.name %></div> 
-                <div><%= item.fps %></div> 
-                <div><%= item.type %></div>
-                <div><%= item.playtypes %></div> 
-                <div><%= item.releasedate %></div>
+            <section class="info-items">
+                <div class="img-item"> <img src="<%= item.imageURL %>"  alt=""> </div> <div> <%= item.name %></div> 
+                <div class="text-item"><%= item.fps %></div> 
+                <div class="text-item"><%= item.type %></div>
+                <div class="text-item"><%= item.playtypes %></div> 
+                <div class="text"><%= item.releasedate %></div>
             </section>    
-        <% } %>
+        <% } %> 
         
 </section>
 </main>

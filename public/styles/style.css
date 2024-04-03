@@ -13,14 +13,35 @@ body{
     'aside header'
     'aside main'
     'footer footer';
-    grid-gap: -1px;
     font-family: sans-serif;
     font-style: normal;
-    max-width: 100%;
 }
 
 header{grid-area: header;}
 aside{grid-area: aside;}
 main{grid-area: main;}
 footer{grid-area: footer;}
+
+header{
+    width: 100%;
+}
+
+aside{
+    width: 200px;
+}
+
+main{
+    width: 100%;
+}
+
+.info-items{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.img-item img{
+    width: 300px;
+    height: 300px;
+}
 
