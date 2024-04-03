@@ -2,7 +2,7 @@ export interface airsoft {
     id: number;
     name: string;
     description: string;
-    fps: number;
+    price: number;
     fullauto: boolean; 
     releasedate: string;
     imageURL: string;

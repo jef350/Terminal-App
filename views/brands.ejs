@@ -1,0 +1,18 @@
+<%- include('partials/header'); %>
+<%- include('partials/aside'); %>
+
+    <main>
+        <h1>merken</h1>
+    <section class="test">
+        <% for (let item of  arr) { %> <br>
+            <section>
+                <div> naam:  <%= item.name %></div> 
+                <div> land: <%= item.country %></div> 
+                <a href="<%= item.website%>">website</a>
+            </section> <br>
+        <% } %>
+        
+</section>
+</main>
+
+<%- include('partials/footer'); %>

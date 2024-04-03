@@ -2,10 +2,14 @@
 <%- include('partials/aside'); %>
 
     <main>
+        <form action="/" method="get">
+            <input type="text" id="search" name="q" value="<%= q %>">
+            <button type="submit">Search</button>
+        </form>
     <form action="/" method="get">
         <select name="sortField">
             <option value="name" <%= sortField === 'name' ? 'selected' : '' %>>Name</option>
-            <option value="fps" <%= sortField === 'fps' ? 'selected' : '' %>>fps</option>
+            <option value="price" <%= sortField === 'price' ? 'selected' : '' %>>price</option>
             <option value="date" <%= sortField === 'date' ? 'selected' : '' %>>date</option>
         </select>
         <select name="sortDirection">
@@ -16,12 +20,28 @@
     </form>
     <section class="items">
         <% for (let item of data) { %>
+<<<<<<< HEAD
             <section class="info-items">
                 <div class="img-item"> <img src="<%= item.imageURL %>"  alt=""> </div> <div> <%= item.name %></div> 
                 <div class="text-item"><%= item.fps %></div> 
                 <div class="text-item"><%= item.type %></div>
                 <div class="text-item"><%= item.playtypes %></div> 
                 <div class="text"><%= item.releasedate %></div>
+=======
+            <section>
+                <div> <img src="/assets/images/<%= item.imageURL %>" alt=""> </div> 
+                <div> <%= item.name %></div> 
+                <div><%= item.price %></div> 
+                <div><%= item.type %></div>
+                <div><%= item.playtypes %></div> 
+                <div><%= item.releasedate %></div>
+                <a href="/product/<%= item.id %>">view</a>
+                <% for (let brand of arr) { %>
+                    <% if (brand.id === item.manufacturer) { %>
+                        <div><%= brand.name %></div>
+                    <% } %>
+                <% } %>
+>>>>>>> refs/remotes/origin/main
             </section>    
         <% } %> 
         

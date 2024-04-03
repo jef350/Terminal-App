@@ -1,0 +1,26 @@
+<%- include('partials/header'); %>
+<%- include('partials/aside'); %>
+
+    <main>
+        <section>
+            <% let item = product %>
+            <h1><%= item.name %></h1>
+            <img src="/assets/images/<%= item.imageURL %>" alt="">
+            <p><%= item.description %></p>
+            <ul>
+                <li>prijs: &euro;<%= item.price %> </li>
+                <li>type: <a href=""><%= item.type %></a></li>
+                <li>uitgave: <%= item.releasedate %></li>
+                <li>fullauto: <%= item.fullauto ? 'Ja' : 'Nee' %></li>
+                <% for (let brand of arr) { %>
+                    <% if (brand.id === item.manufacturer) { %>
+                        <li><a href=""><%= brand.name %></a></li>
+                    <% } %>
+                <% } %>
+
+            </ul>
+            
+        </section>
+    </main>
+
+<%- include('partials/footer'); %>
