@@ -23,24 +23,47 @@ main{grid-area: main;}
 footer{grid-area: footer;}
 
 header{
-    width: 100%;
 }
 
 aside{
     width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+aside a{
+    padding: 15px;
 }
 
 main{
     width: 100%;
+    margin-top: 25px;
 }
 
 .info-items{
     display: flex;
     flex-direction: row;
     width: 100%;
+    margin-top: 1rem;
+    border: 1px solid black;
 }
 
-.img-item img{
+.info-items p{
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    margin-left: 3rem;
+    width: 100px;
+}
+
+.info-items a{
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    margin-left: 3rem;
+}
+
+.img-item{
     width: 300px;
     height: 300px;
 }
