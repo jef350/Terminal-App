@@ -4,8 +4,8 @@
     <main>
 
         <form class="search-bar" action="/" method="get">
-            <input type="text" id="search" name="q" value="<%= q %>">
-            <button type="submit">Search</button>
+            <button type="submit"><i class="bi bi-search"></i></button>
+            <input  type="text" placeholder="zoeken..." id="search" name="q" value="<%= q %>">
         </form>
         
     <form action="/" method="get">
@@ -23,11 +23,14 @@
     <section class="items">
         <% for (let item of data) { %>
             <section class="info-items">
-                 <img class="img-item" src="/assets/images/<%= item.imageURL %>" alt=""> 
+                 <img class="img-home" src="/assets/images/<%= item.imageURL %>" alt=""> 
                 <p> <%= item.name %></p> 
                 <p><%= item.price %></p> 
                 <p><%= item.type %></p>
-                <p><%= item.playtypes %></p> 
+
+                <article>
+                    <p><%= item.playtypes %></p> 
+                </article>
                 <p><%= item.releasedate %></p>
                 <a href="/product/<%= item.id %>">view</a>
                 <% for (let brand of arr) { %>

@@ -20,7 +20,7 @@
       "fullauto": false,
       "releasedate": "2017-08-04",
       "imageURL": "hi-capa.jpg",
-      "type": "GBB",
+      "type": "GBB & co2",
       "playtypes": ["CQB", "pistoolwedstrijden"],
       "manufacturer": 102
     },
@@ -44,7 +44,7 @@
       "fullauto": false,
       "releasedate": "2020-05-12",
       "imageURL": "ssp5.png",
-      "type": "gbb",
+      "type": "GBB & co2",
       "playtypes": ["CQB", "pistoolwedstrijden"],
       "manufacturer": 104
 
@@ -80,8 +80,8 @@
       "price": 190,
       "fullauto": false,
       "releasedate": "2016-06-12",
-      "imageURL": "public/assets/images/1911_tac.jpg",
-      "type": "CO2",
+      "imageURL": "1911_tac.jpg",
+      "type": "GBB & co2",
       "playtypes": ["CQB", "milsim"],
       "manufacturer": 107
     },

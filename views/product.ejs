@@ -1,14 +1,14 @@
 <%- include('partials/header'); %>
 <%- include('partials/aside'); %>
 
-    <main>
-        <section>
+    <main class="product-main">
+        <section class="product-info">
             <% let item = product %>
             <h1><%= item.name %></h1>
             <img src="/assets/images/<%= item.imageURL %>" alt="">
             <p><%= item.description %></p>
             <ul>
-                <li>prijs: &euro;<%= item.price %> </li>
+                <li>prijs: &euro; <%= item.price %> </li>
                 <li>type: <a href="/type's"><%= item.type %></a></li>
                 <li>uitgave: <%= item.releasedate %></li>
                 <li>fullauto: <%= item.fullauto ? 'Ja' : 'Nee' %></li>
