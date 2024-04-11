@@ -3,54 +3,63 @@
       "id": 101,
       "name": "G&G Armament",
       "country": "Taiwan",
+      "imageURL": "g&glogo.jpg",
       "website": "https://www.guay2.com/"
     },
     {
       "id": 102,
       "name": "Tokyo Marui",
       "country": "Japan",
+      "imageURL": "maruilogo.jpg",
       "website": "https://www.tokyo-marui.co.jp/"
     },
     {
         "id": 103,
         "name": "Wolverine Airsoft",
         "country": "Verenigde Staten",
+        "imageURL": "mtwlogo.jpg",
         "website": "https://wolverineairsoft.com/"
       },
     {
         "id": 104,
         "name": "Novritsch",
         "country": "Oostenrijk",
+        "imageURL": "novlogo.jpg",
         "website": "https://novritsch.com/"
       },
     {
       "id": 106,
       "name": "Vega Force Company",
       "country": "Taiwan",
+      "imageURL": "vfclogo.jpg",
       "website": "https://www.vegaforce.com/site/about?lang=en"
     },
     {
       "id": 107,
       "name": "Elite Force",
       "country": "United States",
+      "imageURL": "eflogo.jpg",
       "website": "https://www.eliteforceairsoft.com/"
     },
     {
       "id": 108,
       "name": "Krytac",
       "country": "United States",
+      "imageURL": "kryteclogo.jpg",
       "website": "https://krytac.com/"
     },
     {
         "id": 109,
         "name": "Ares Airsoft",
         "country": "Taiwan",
+        "imageURL": "areslogo.jpg",
         "website": "https://aresairsoft.com/"
       },
     {
         "id": 110,
         "name": "Specna Arms",
         "country": "Polen",
+        "imageURL": "salogo.jpg",
         "website": "https://www.specnaarms.com/"
     }
   ]

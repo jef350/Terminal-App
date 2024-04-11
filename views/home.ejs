@@ -20,26 +20,42 @@
         </select>
         <button type="submit">Sort</button>
     </form>
-    <section class="items">
-        <% for (let item of data) { %>
-            <section class="info-items">
-                 <img class="img-home" src="/assets/images/<%= item.imageURL %>" alt=""> 
-                <p> <%= item.name %></p> 
-                <p><%= item.price %></p> 
-                <p><%= item.type %></p>
-
-                <article>
-                    <p><%= item.playtypes %></p> 
-                </article>
-                <p><%= item.releasedate %></p>
-                <a href="/product/<%= item.id %>">view</a>
-                <% for (let brand of arr) { %>
-                    <% if (brand.id === item.manufacturer) { %>
-                        <p><%= brand.name %></p>
-                    <% } %>
+    
+    <% for (let item of data) { %>
+        <section class="info-items">
+            <img class="img-home" src="/assets/images/<%= item.imageURL %>" alt=""> 
+            <p><%= item.name %></p> 
+            <p> &euro; <%= item.price %></p> 
+            <a class="item-icon" href="/type's">
+                <% if (item.type === 'HPA') { %>
+                    <i class="bi bi-wind"></i> 
+                <% } else if (item.type === 'AEG') { %>
+                    <i class="bi bi-lightning-charge"></i>
+                <% } else if (item.type === 'GBB & co2') { %>
+                    <i class="bi bi-cloud"></i>
+                <% } else if (item.type === 'spring') { %>
+                    <i class="bi bi-arrow-repeat"></i>
                 <% } %>
-            </section>    
-        <% } %> 
+            </a>
+            <article>
+                <% item.playtypes.forEach(function(playtype) { %>
+                    <p><%= playtype %></p>
+                <% }); %>
+            </article>
+            <p><%= item.releasedate %></p>
+            <% for (let brand of arr) { %>
+                <% if (brand.id === item.manufacturer) { %>
+                    <p><%= brand.name %></p>
+                <% } %>
+            <% } %>
+            <a href="/product/<%= item.id %>">info</a>
+            <p><% if (item.fullauto === true) { %>
+                <i class="bi bi-circle-fill green"></i> 
+            <% } else { %>
+                <i class="bi bi-circle-fill red"></i> 
+            <%}%></p>
+        </section>    
+    <% } %>
         
 </section>
 </main>

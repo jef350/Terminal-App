@@ -3,13 +3,14 @@
 
     <main>
         <h1>merken</h1>
-    <section class="test">
+    <section class="brand-info">
         <% for (let item of  arr) { %> <br>
-            <section>
-                <div> naam:  <%= item.name %></div> 
-                <div> land: <%= item.country %></div> 
+            <article>
+                <h1><%= item.name %></h1>
+                <img class="img-home" src="/assets/images/<%= item.imageURL %>" alt="">  
+                <p> land: <%= item.country %></p> 
                 <a href="<%= item.website%>">website</a>
-            </section> <br>
+            </article> <br>
         <% } %>
         
 </section>

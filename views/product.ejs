@@ -3,9 +3,12 @@
 
     <main class="product-main">
         <section class="product-info">
+            <article class="info-top">
             <% let item = product %>
             <h1><%= item.name %></h1>
             <img src="/assets/images/<%= item.imageURL %>" alt="">
+        </article>
+            <article class="info-bottom">
             <p><%= item.description %></p>
             <ul>
                 <li>prijs: &euro; <%= item.price %> </li>
@@ -19,7 +22,7 @@
                 <% } %>
 
             </ul>
-            
+        </article>
         </section>
     </main>
 
