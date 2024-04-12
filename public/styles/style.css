@@ -15,7 +15,6 @@ body{
     'footer footer';
     font-family: sans-serif;
     font-style: normal;
-    font-size: medium;
 }
 
 header{grid-area: header;}
@@ -55,6 +54,7 @@ aside section a{
     display: flex;
     flex-direction: row;
     align-content: center;
+    justify-content: space-between;
     text-align: center;
     max-width: 90%;
     height: 150px;
@@ -67,13 +67,46 @@ aside section a{
     text-align: center;
     justify-content: center;
     align-content: center;
-    margin-left: 2rem;
     width: 100px;
+}
+
+.info-items ul{
+     text-align: center;
+    justify-content: center;
+    align-content: center;
+    width: 160px;
+}
+
+.info-items li{
+    text-align: left;
+    justify-content: left;
+    align-content: left;
+    width: 150px;
 }
 
 .item-icon i {
     width: 50px; 
     height: auto; 
+}
+
+.electric{
+    color: red;
+    font-size: large;
+}
+
+.gas{
+    color: green;
+    font-size: large;
+}
+
+.hpa{
+    color: blue;
+    font-size: large;
+}
+
+.spring{
+    color: gray;
+    font-size: large;
 }
 
 .green {
@@ -84,12 +117,23 @@ aside section a{
     color: red;
 }
 
+.sort{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 90%;
+    margin-top: 1rem;
+}
 
-.info-items article {
-    text-align: center;
-    justify-content: center;
-    align-content: center;
-    width: 100px;
+.sort form button{
+    background-color: white;
+    border: none;
+    font-size: medium;
+}
+
+.sort-select{
+    border: none;
+    justify-content: space-between;
 }
 
 .info-items a{
@@ -136,6 +180,14 @@ aside section a{
     border-top-right-radius: 15px;
 }
 
+.info-top img{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    align-items: center;
+    justify-content: center;
+}
+
 .info-bottom{
     display: flex;
     flex-direction: column;
@@ -179,6 +231,8 @@ aside section a{
 .type p {
     margin-top: 10px;
     text-align: center; 
+    border-top: 1px solid black;
+    padding: 15px;
 }
 
 

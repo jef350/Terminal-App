@@ -2,25 +2,29 @@
 <%- include('partials/aside'); %>
 
     <main>
-
+        <section class="sort">
         <form class="search-bar" action="/" method="get">
             <button type="submit"><i class="bi bi-search"></i></button>
             <input  type="text" placeholder="zoeken..." id="search" name="q" value="<%= q %>">
         </form>
         
-    <form action="/" method="get">
-        <select name="sortField">
-            <option value="name" <%= sortField === 'name' ? 'selected' : '' %>>Name</option>
-            <option value="price" <%= sortField === 'price' ? 'selected' : '' %>>price</option>
-            <option value="date" <%= sortField === 'date' ? 'selected' : '' %>>date</option>
-        </select>
-        <select name="sortDirection">
-            <option value="asc" <%= sortDirection === 'asc' ? 'selected' : '' %>>Ascending</option>
-            <option value="desc" <%= sortDirection === 'desc' ? 'selected' : '' %>>Descending</option>
-        </select>
-        <button type="submit">Sort</button>
-    </form>
-    
+        <form action="/" method="get">
+            <select class="sort-select" name="sortField">
+                <option class="sort-option" value="name" <%= sortField === 'name' ? 'selected' : '' %>>Name</option>
+                <option class="sort-option" value="price" <%= sortField === 'price' ? 'selected' : '' %>>price</option>
+                <option class="sort-option" value="date" <%= sortField === 'date' ? 'selected' : '' %>>date</option>
+                <option class="sort-option" value="brand" <%= sortField === 'brand' ? 'selected' : '' %>>merk</option>
+                <option class="sort-option" value="fullauto" <%= sortField === 'fullauto' ? 'selected' : '' %>>fullauto</option>
+            </select>
+            <select class="sort-select" name="sortDirection">
+                <option class="sort-option" value="asc" <%= sortDirection === 'asc' ? 'selected' : '' %>>Ascending</option>
+                <option class="sort-option" value="desc" <%= sortDirection === 'desc' ? 'selected' : '' %>>Descending</option>
+            </select>
+            <button type="submit">Sort</button>
+        </form>
+    </section>
+        
+        
     <% for (let item of data) { %>
         <section class="info-items">
             <img class="img-home" src="/assets/images/<%= item.imageURL %>" alt=""> 
@@ -28,20 +32,20 @@
             <p> &euro; <%= item.price %></p> 
             <a class="item-icon" href="/type's">
                 <% if (item.type === 'HPA') { %>
-                    <i class="bi bi-wind"></i> 
+                    <i class="bi bi-wind wind hpa"></i> 
                 <% } else if (item.type === 'AEG') { %>
-                    <i class="bi bi-lightning-charge"></i>
+                    <i class="bi bi-lightning-charge electric"></i>
                 <% } else if (item.type === 'GBB & co2') { %>
-                    <i class="bi bi-cloud"></i>
+                    <i class="bi bi-cloud gas"></i>
                 <% } else if (item.type === 'spring') { %>
-                    <i class="bi bi-arrow-repeat"></i>
+                    <i class="bi bi-arrow-repeat spring"></i>
                 <% } %>
             </a>
-            <article>
+            <ul>
                 <% item.playtypes.forEach(function(playtype) { %>
-                    <p><%= playtype %></p>
+                    <li><%= playtype %></li>
                 <% }); %>
-            </article>
+            </ul>
             <p><%= item.releasedate %></p>
             <% for (let brand of arr) { %>
                 <% if (brand.id === item.manufacturer) { %>
