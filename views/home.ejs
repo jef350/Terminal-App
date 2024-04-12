@@ -49,7 +49,7 @@
             <p><%= item.releasedate %></p>
             <% for (let brand of arr) { %>
                 <% if (brand.id === item.manufacturer) { %>
-                    <p><%= brand.name %></p>
+                    <a class="a-brands" href="/brands"><%= brand.name %></a>
                 <% } %>
             <% } %>
             <a href="/product/<%= item.id %>">info</a>

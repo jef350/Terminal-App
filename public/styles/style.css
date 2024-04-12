@@ -67,7 +67,8 @@ aside section a{
     text-align: center;
     justify-content: center;
     align-content: center;
-    width: 100px;
+    width: 150px;
+    margin-left: 2rem;
 }
 
 .info-items ul{
@@ -75,18 +76,24 @@ aside section a{
     justify-content: center;
     align-content: center;
     width: 160px;
+    margin-left: 2rem;
 }
 
 .info-items li{
     text-align: left;
     justify-content: left;
     align-content: left;
-    width: 150px;
+    width: 160px;
 }
 
 .item-icon i {
     width: 50px; 
     height: auto; 
+    margin-left: 2rem;
+}
+
+.item-icon i:hover {
+    color: blue;
 }
 
 .electric{
@@ -147,6 +154,16 @@ aside section a{
     max-width: 150px;
     height: 148px;
     margin-left: 1rem;
+}
+
+.a-brands{
+    text-decoration: none;
+    color: black;
+}
+
+.a-brands:hover{
+    text-decoration: none;
+    color: blue;
 }
 
 /*product page*/
