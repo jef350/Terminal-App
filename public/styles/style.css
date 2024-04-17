@@ -57,7 +57,7 @@ aside section a{
     justify-content: space-between;
     text-align: center;
     max-width: 90%;
-    height: 150px;
+    height: 10rem;
     margin-top: 1rem;
     border: 1px solid black;
     border-radius: 15px;
@@ -151,9 +151,10 @@ aside section a{
 }
 
 .img-home{
-    max-width: 150px;
-    height: 148px;
+    width: 200px;
+    height: 9rem;
     margin-left: 1rem;
+    padding: 5px;
 }
 
 .a-brands{
