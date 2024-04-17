@@ -1,10 +1,10 @@
 [
     {
       "id": 101,
-      "name": "G&G Armament",
-      "country": "Taiwan",
-      "imageURL": "g&glogo.jpg",
-      "website": "https://www.guay2.com/"
+      "name": "Monk customs",
+      "country": "Europa",
+      "imageURL": "monklogo.jpg",
+      "website": "https://monkcustoms.com/"
     },
     {
       "id": 102,
@@ -29,38 +29,38 @@
       },
     {
       "id": 106,
-      "name": "Vega Force Company",
-      "country": "Taiwan",
-      "imageURL": "vfclogo.jpg",
-      "website": "https://www.vegaforce.com/site/about?lang=en"
+      "name": "EMG arms",
+      "country": "Verenigde Staten",
+      "imageURL": "emglogo.png",
+      "website": "https://www.emgarms.com/"
     },
     {
       "id": 107,
-      "name": "Elite Force",
+      "name": "Action Army",
       "country": "United States",
-      "imageURL": "eflogo.jpg",
-      "website": "https://www.eliteforceairsoft.com/"
+      "imageURL": "actionarmylogo.jpg",
+      "website": "http://www.action-army.com/"
     },
     {
-      "id": 108,
-      "name": "Krytac",
-      "country": "United States",
-      "imageURL": "kryteclogo.jpg",
-      "website": "https://krytac.com/"
-    },
-    {
-        "id": 109,
+        "id": 108,
         "name": "Ares Airsoft",
         "country": "Taiwan",
         "imageURL": "areslogo.jpg",
         "website": "https://aresairsoft.com/"
       },
     {
-        "id": 110,
+        "id": 109,
         "name": "Specna Arms",
         "country": "Polen",
         "imageURL": "salogo.jpg",
         "website": "https://www.specnaarms.com/"
-    }
+    },
+    {
+      "id": 110,
+      "name": "Airtac customs",
+      "country": "United States",
+      "imageURL": "airtaclogo.png",
+      "website": "https://airtaccustoms.com/"
+  }
   ]
   

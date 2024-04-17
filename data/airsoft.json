@@ -22,7 +22,7 @@
       "imageURL": "artikel1lijn.png",
       "type": "HPA",
       "playtypes": ["CQB", "SPEEDSOFT"],
-      "manufacturer": 102
+      "manufacturer": 103
     },
     {
         "id": 3,
@@ -59,7 +59,7 @@
       "imageURL": "amoeba_striker.jpg",
       "type": "spring",
       "playtypes": ["outdoor", "milsim"],
-      "manufacturer": 109
+      "manufacturer": 108
     },
     {
       "id": 6,
@@ -71,7 +71,7 @@
       "imageURL": "artikel1eurogrip.png",
       "type": "HPA",
       "playtypes": ["CQB", "SPEEDSOFT"],
-      "manufacturer": 106
+      "manufacturer": 103
     },
     {
       "id": 7,
@@ -83,7 +83,7 @@
       "imageURL": "viper1.png",
       "type": "GBB & co2",
       "playtypes": ["CQB", "SPEEDSOFT"],
-      "manufacturer": 107
+      "manufacturer": 106
     },
     {
       "id": 8,
@@ -95,7 +95,7 @@
       "imageURL": "aapcustom1.png",
       "type": "GBB & co2",
       "playtypes": ["SPEEDSOFT", "CQB"],
-      "manufacturer": 108
+      "manufacturer": 107
     },
     {
       "id": 9,
@@ -107,7 +107,7 @@
       "imageURL": "hi-capacustom1.png",
       "type": "GBB & co2",
       "playtypes": ["CQB", "SPEEDSOFT"],
-      "manufacturer": 109
+      "manufacturer": 102
     },
     {
         "id": 10,
@@ -119,7 +119,7 @@
         "imageURL": "specna-arms.webp",
         "type": "AEG",
         "playtypes": ["milsim", "outdoor"],
-        "manufacturer": 110
+        "manufacturer": 109
       },
       {
         "id": 11,
@@ -143,7 +143,7 @@
         "imageURL": "speedaeg.png",
         "type": "AEG",
         "playtypes": ["CQB", "SPEEDSOFT"],
-        "manufacturer": 108
+        "manufacturer": 110
       }
       
   ]
