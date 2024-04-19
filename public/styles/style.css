@@ -15,6 +15,9 @@ body{
     'footer footer';
     font-family: sans-serif;
     font-style: normal;
+    background-image: url('/assets/images/speedsoftarena.jpg'); 
+    background-size: cover;
+    background-position: center;
 }
 
 header{grid-area: header;}
