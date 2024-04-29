@@ -1,10 +1,9 @@
 import { text } from "stream/consumers";
 import data from "./data/airsoft.json";
 import arr from "./data/Manufacturer.json";
-
+import { connect } from "./database";
 import { airsoft, manufacturer } from './interfaces';
 import * as readline from 'readline-sync';
-
 import express from "express";
 import ejs, { Data } from "ejs";
 
@@ -18,7 +17,7 @@ app.set("port", 3000);
 
 let itemsWithManufacturer = data.map(item => {
     const manufacturer = arr.find((manufacturer: any) => manufacturer.id === item.manufacturer);
-    const manufacturerName = manufacturer ? manufacturer.name : ""; // Als de fabrikant is gevonden, krijgen we de naam, anders leeg string
+    const manufacturerName = manufacturer ? manufacturer.name : ""; 
     return { ...item, manufacturerName };
 });
 
@@ -102,4 +101,8 @@ app.get("/type's", (req, res) => {
 
 });
 
-  app.listen(app.get('port'), ()=>console.log( '[server] http://localhost:' + app.get('port')));
+app.listen( async () => {
+    await connect();
+    console.log( '[server] http://localhost:' + app.get('port'))
+});
+
