@@ -1,12 +1,11 @@
 import { text } from "stream/consumers";
-import data from "./data/airsoft.json";
-import arr from "./data/Manufacturer.json";
+/*import data from "./data/airsoft.json";*/
+/*import arr from "./data/Manufacturer.json";*/
+import { connect, getairsoftdata, getmanufacturerdata } from "./database";
 
 import { airsoft, manufacturer } from './interfaces';
-import * as readline from 'readline-sync';
 
 import express from "express";
-import ejs, { Data } from "ejs";
 
 
 const app = express();
@@ -16,16 +15,23 @@ app.set("view engine", "ejs");
 app.set("port", 3000);
 
 
-let itemsWithManufacturer = data.map(item => {
-    const manufacturer = arr.find((manufacturer: any) => manufacturer.id === item.manufacturer);
-    const manufacturerName = manufacturer ? manufacturer.name : ""; // Als de fabrikant is gevonden, krijgen we de naam, anders leeg string
-    return { ...item, manufacturerName };
-});
 
 
 
 
-app.get('/', (req, res) => {
+
+app.get('/', async (req, res) => {
+
+    const data = await getairsoftdata();
+
+    const arr = await getmanufacturerdata();
+
+    let itemsWithManufacturer = data.map(item => {
+        const manufacturer = arr.find((manufacturer: any) => manufacturer.id === item.manufacturer);
+        const manufacturerName = manufacturer ? manufacturer.name : ""; 
+        return { ...item, manufacturerName };
+    });
+
     let q: string = req.query.q ? req.query.q.toString() : ''; 
 
     let filteredItems: airsoft[] = itemsWithManufacturer.filter((item: airsoft) => {
@@ -81,7 +87,12 @@ app.get('/', (req, res) => {
 });
 
 
-app.get("/product/:id", (req, res) => {
+app.get("/product/:id", async (req, res) => {
+
+    const data = await getairsoftdata();
+
+    const arr = await getmanufacturerdata();
+
     let id: number = parseInt(req.params.id); 
 
     let product = data.find((item) => item.id === id);
@@ -90,7 +101,9 @@ app.get("/product/:id", (req, res) => {
     
 });
 
-app.get("/brands", (req, res) => {
+app.get("/brands", async (req, res) => {
+
+    const arr = await getmanufacturerdata();
 
         res.render("brands", { arr: arr });
     
@@ -102,4 +115,7 @@ app.get("/type's", (req, res) => {
 
 });
 
-  app.listen(app.get('port'), ()=>console.log( '[server] http://localhost:' + app.get('port')));
+app.listen(3000, async () => {
+    await connect();
+    console.log("Server is running on port 3000");
+});
