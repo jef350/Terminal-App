@@ -5,6 +5,7 @@ import { connect, getairsoftdata, getmanufacturerdata } from "./database";
 
 import { airsoft, manufacturer } from './interfaces';
 
+
 import express from "express";
 
 
@@ -13,12 +14,6 @@ const app = express();
 app.use(express.static("public"));
 app.set("view engine", "ejs"); 
 app.set("port", 3000);
-
-
-
-
-
-
 
 app.get('/', async (req, res) => {
 
@@ -119,3 +114,5 @@ app.listen(3000, async () => {
     await connect();
     console.log("Server is running on port 3000");
 });
+
+

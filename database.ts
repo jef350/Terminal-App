@@ -18,6 +18,14 @@ export async function getmanufacturerdata() {
     return await manufacturercollection.find({}).toArray();
 }
 
+export async function getAirsoftProducts(): Promise<airsoft[]> {
+    return await airsoftcollection.find({}).toArray();
+}
+
+export async function getManufacturers(): Promise<manufacturer[]> {
+    return await manufacturercollection.find({}).toArray();
+}
+
 async function exit() {
     try {
         await client.close();
@@ -46,6 +54,7 @@ export async function loadmanufacturerFromApi() {
     }
 }
 
+
 export async function connect() {
     try {
         await client.connect();
@@ -57,3 +66,4 @@ export async function connect() {
         console.error(error);
     }
 }
+
