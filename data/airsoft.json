@@ -1,0 +1,150 @@
+
+[
+    {
+      "id": 1,
+      "name": " Monk custom met Eurogrip",
+      "description": "De Monk Custom Airsoft Build is een hoogwaardig aangepast airsoftgeweer, ontworpen voor serieuze spelers die streven naar ultieme prestaties en aanpasbaarheid. Met zijn Euro Grip, speciaal ontworpen om een tank aan te kunnen sluiten voor constante luchttoevoer, biedt dit geweer een ongeëvenaarde controle en precisie op het veld. Met zorgvuldig geselecteerde onderdelen en vakmanschap levert deze build superieure betrouwbaarheid en prestaties. Een investering in de ultieme airsoftervaring. Prijs op aanvraag.",
+      "price": 1200,
+      "fullauto": true,
+      "releasedate": "2020-05-06",
+      "imageURL": "monkeurogrip.jpg",
+      "type": "HPA",
+      "playtypes": ["CQB", "SPEEDSOFT"],
+      "manufacturer": 101
+    },
+    {
+      "id": 2,
+      "name": "Artikel 1",
+      "description": "De artikel 1 Airsoft Build is een indrukwekkend op maat gemaakt airsoftgeweer, ontworpen voor de meest veeleisende spelers die streven naar topprestaties en aanpasbaarheid. Met zijn HPA-lijn (High Pressure Air) biedt dit geweer een consistente en krachtige luchttoevoer voor een ongeëvenaarde precisie en betrouwbaarheid op het speelveld. Elke component is zorgvuldig geselecteerd en met vakmanschap gemonteerd om een ​​optimale spelervaring te garanderen.",
+      "price": 900,
+      "fullauto": true,
+      "releasedate": "2020-08-04",
+      "imageURL": "artikel1lijn.png",
+      "type": "HPA",
+      "playtypes": ["CQB", "SPEEDSOFT"],
+      "manufacturer": 103
+    },
+    {
+        "id": 3,
+        "name": "MTW Billet",
+        "description": "De Wolverine MTW Billet is een veelzijdig airsoftgeweer geschikt voor verschillende speelstijlen. Het biedt betrouwbare prestaties en is ontworpen voor gebruik met HPA-systemen.",
+        "price": 1099,
+        "fullauto": true,
+        "releasedate": "2020-12-25",
+        "imageURL": "mtw_billet.jpg",
+        "type": "HPA",
+        "playtypes": ["CQB", "outdoor"],
+        "manufacturer": 103
+      },  
+    {
+      "id": 4,
+      "name": "ssp5",
+      "description": "De ssp5 van Novritsch is een hoogwaardig airsoftpistool, ontworpen voor precisie en prestaties. Het is ideaal voor zowel beginners als ervaren spelers.",
+      "price": 299,
+      "fullauto": false,
+      "releasedate": "2020-05-12",
+      "imageURL": "ssp5.png",
+      "type": "GBB & co2",
+      "playtypes": ["CQB", "SPEEDSOFT"],
+      "manufacturer": 104
+
+    },
+    {
+      "id": 5,
+      "name": "Amoeba Striker AS02",
+      "description": "De Amoeba Striker AS02 is een high-end bolt-action airsoft sniper rifle, ontworpen voor precisie en langeafstandsschieten. Het is geschikt voor zowel beginners als ervaren spelers.",
+      "price": 300,
+      "fullauto": false,
+      "releasedate": "2018-02-23",
+      "imageURL": "amoeba_striker.jpg",
+      "type": "spring",
+      "playtypes": ["outdoor", "milsim"],
+      "manufacturer": 108
+    },
+    {
+      "id": 6,
+      "name": "Artikel 1 Eurogrip",
+      "description": "De artikel 1 met eurogrip Airsoft Build is een hoogwaardig aangepast airsoftgeweer, ontworpen voor serieuze spelers die streven naar ultieme prestaties en aanpasbaarheid. Met zijn Euro Grip, speciaal ontworpen om een tank aan te kunnen sluiten voor constante luchttoevoer, biedt dit geweer een ongeëvenaarde controle en precisie op het veld. Met zorgvuldig geselecteerde onderdelen en vakmanschap levert deze build superieure betrouwbaarheid en prestaties.",
+      "price": 450,
+      "fullauto": true,
+      "releasedate": "2016-05-30",
+      "imageURL": "artikel1eurogrip.png",
+      "type": "HPA",
+      "playtypes": ["CQB", "SPEEDSOFT"],
+      "manufacturer": 103
+    },
+    {
+      "id": 7,
+      "name": "EMG John Wick 4 Pit Viper",
+      "description":  "De EMG John Wick 4 Pit Viper is een eerbetoon aan de iconische stijl van de legendarische huurmoordenaar, met een ongeëvenaarde combinatie van kracht, precisie en esthetiek. Dit op maat gemaakte airsoftgeweer biedt een compromisloze prestatie op het slagveld, met een gestroomlijnd ontwerp en hoogwaardige componenten. Met de kenmerkende Pit Viper-gravures en een speciale John Wick 4 afwerking, voel je je direct in het midden van een actiescène. Voor spelers die streven naar de ultieme combinatie van stijl en prestaties. Prijs op aanvraag.",
+      "price": 300,
+      "fullauto": false,
+      "releasedate": "2019-06-12",
+      "imageURL": "viper1.png",
+      "type": "GBB & co2",
+      "playtypes": ["CQB", "SPEEDSOFT"],
+      "manufacturer": 106
+    },
+    {
+      "id": 8,
+      "name": "custom aap01",
+      "description": "De Custom AAP01 is een ultieme keuze voor wie op zoek is naar een compact en veelzijdig sidearm voor speedsoft of CQB-gevechten. Met zijn op maat gemaakte upgrades en aanpassingen biedt deze AAP01 ongeëvenaarde prestaties en betrouwbaarheid op het veld. Van zijn lichtgewicht en duurzame constructie tot zijn verbeterde interne componenten, elk aspect van dit geweer is ontworpen om te excelleren in snel bewegende gevechtssituaties. Met zijn ergonomisch ontworpen frame en verbeterde grip biedt deze Custom AAP01 ultieme controle en precisie, waardoor je een stap voor blijft op de concurrentie. Een onmisbaar instrument voor de serieuze speler die compromisloze prestaties eist..",
+      "price": 400,
+      "fullauto": true,
+      "releasedate": "2019-04-29",
+      "imageURL": "aapcustom1.png",
+      "type": "GBB & co2",
+      "playtypes": ["SPEEDSOFT", "CQB"],
+      "manufacturer": 107
+    },
+    {
+      "id": 9,
+      "name": "custom hi-capa",
+      "description": "De Custom Hi-Capa voor Speedsoft is een meesterwerk van snelheid en precisie, ontworpen voor de meest veeleisende speedsofters. Met zijn gestroomlijnde frame en ultra-lichtgewicht constructie biedt deze Hi-Capa ongeëvenaarde wendbaarheid en snelheid op het veld. Aangepast met hoogwaardige interne en externe upgrades voor maximale prestaties, biedt dit geweer een ongeëvenaarde reactietijd en nauwkeurigheid. Of je nu de competitie wilt domineren of je vaardigheden naar een hoger niveau wilt tillen, de Custom Hi-Capa voor Speedsoft staat garant voor een onvergetelijke ervaring.",
+      "price": 500,
+      "fullauto": false,
+      "releasedate": "2018-10-02",
+      "imageURL": "hi-capacustom1.png",
+      "type": "GBB & co2",
+      "playtypes": ["CQB", "SPEEDSOFT"],
+      "manufacturer": 102
+    },
+    {
+        "id": 10,
+        "name": " Ak Edge 2.0",
+        "description": "De Specna Arms 2.0 is een geavanceerd airsoftgeweer met verbeterde prestaties en betrouwbaarheid. Het is ontworpen voor zowel beginners als ervaren spelers.",
+        "price": 320,
+        "fullauto": true,
+        "releasedate": "2022-10-28",
+        "imageURL": "specna-arms.webp",
+        "type": "AEG",
+        "playtypes": ["milsim", "outdoor"],
+        "manufacturer": 109
+      },
+      {
+        "id": 11,
+        "name": "VSR-10",
+        "description": "De Tokyo Marui VSR-10 is een populaire bolt-action sniper rifle, bekend om zijn precisie en betrouwbaarheid. Het is een favoriet onder airsoftsnipers.",
+        "price": 299,
+        "fullauto": false,
+        "releasedate": "2015-06-24",
+        "imageURL": "vsr-10.webp",
+        "type": "spring",
+        "playtypes": ["outdoor", "milsim"],
+        "manufacturer": 102
+      },      
+      {
+        "id": 12,
+        "name": "airtac custom AEG",
+        "description": "De airtac custom AEG is een geavanceerd aangepast airsoftgeweer, perfect voor spelers die op zoek zijn naar kracht en wendbaarheid op het slagveld. Uitgerust met een Eurogrip, speciaal ontworpen voor het gemakkelijk plaatsen van een batterij, biedt dit geweer een naadloze stroomvoorziening voor langdurige speelsessies. Met zijn robuuste constructie en ergonomisch ontwerp levert de EAG uitzonderlijke prestaties en controle. Een must-have voor serieuze airsofters die topprestaties eisen.",
+        "price": 350,
+        "fullauto": true,
+        "releasedate": "2021-06-02",
+        "imageURL": "speedaeg.png",
+        "type": "AEG",
+        "playtypes": ["CQB", "SPEEDSOFT"],
+        "manufacturer": 110
+      }
+      
+  ]
+  

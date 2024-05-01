@@ -1,0 +1,66 @@
+[
+    {
+      "id": 101,
+      "name": "Monk customs",
+      "country": "Europa",
+      "imageURL": "monklogo.jpg",
+      "website": "https://monkcustoms.com/"
+    },
+    {
+      "id": 102,
+      "name": "Tokyo Marui",
+      "country": "Japan",
+      "imageURL": "maruilogo.jpg",
+      "website": "https://www.tokyo-marui.co.jp/"
+    },
+    {
+        "id": 103,
+        "name": "Wolverine Airsoft",
+        "country": "Verenigde Staten",
+        "imageURL": "mtwlogo.jpg",
+        "website": "https://wolverineairsoft.com/"
+      },
+    {
+        "id": 104,
+        "name": "Novritsch",
+        "country": "Oostenrijk",
+        "imageURL": "novlogo.jpg",
+        "website": "https://novritsch.com/"
+      },
+    {
+      "id": 106,
+      "name": "EMG arms",
+      "country": "Verenigde Staten",
+      "imageURL": "emglogo.png",
+      "website": "https://www.emgarms.com/"
+    },
+    {
+      "id": 107,
+      "name": "Action Army",
+      "country": "United States",
+      "imageURL": "actionarmylogo.jpg",
+      "website": "http://www.action-army.com/"
+    },
+    {
+        "id": 108,
+        "name": "Ares Airsoft",
+        "country": "Taiwan",
+        "imageURL": "areslogo.jpg",
+        "website": "https://aresairsoft.com/"
+      },
+    {
+        "id": 109,
+        "name": "Specna Arms",
+        "country": "Polen",
+        "imageURL": "salogo.jpg",
+        "website": "https://www.specnaarms.com/"
+    },
+    {
+      "id": 110,
+      "name": "Airtac customs",
+      "country": "United States",
+      "imageURL": "airtaclogo.png",
+      "website": "https://airtaccustoms.com/"
+  }
+  ]
+  

@@ -1,0 +1,29 @@
+<%- include('partials/header'); %>
+<%- include('partials/aside'); %>
+
+    <main class="product-main">
+        <section class="product-info">
+            <article class="info-top">
+            <% let item = product %>
+            <h1><%= item.name %></h1>
+            <img src="/assets/images/<%= item.imageURL %>" alt="">
+        </article>
+            <article class="info-bottom">
+            <p><%= item.description %> dit is het beste voor <%= item.playtypes %></p>
+            <ul>
+                <li>prijs: &euro; <%= item.price %> </li>
+                <li>type: <a href="/type's"><%= item.type %></a></li>
+                <li>uitgave: <%= item.releasedate %></li>
+                <li>fullauto: <%= item.fullauto ? 'Ja' : 'Nee' %></li>
+                <% for (let brand of arr) { %>
+                    <% if (brand.id === item.manufacturer) { %>
+                        <li><a href="/brands"><%= brand.name %></a></li>
+                    <% } %>
+                <% } %>
+                <li><a href="/update/<%= item.id %>">update</a></li>
+            </ul>
+        </article>
+        </section>
+    </main>
+
+<%- include('partials/footer'); %>

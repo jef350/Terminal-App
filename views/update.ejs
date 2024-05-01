@@ -1,0 +1,38 @@
+<%- include("partials/header") %>
+<%- include('partials/aside'); %>
+
+<main class="update-main">
+<section class="update-container">
+    <h1>Update User</h1>
+    <img src="/assets/images/<%= item.imageURL %>" alt="">
+    <form action="/product/<%= item._id %>/update" method="POST">
+        <article>
+            <label for="name">Naam:</label>
+            <input type="text" id="name" name="name" value="<%= item.name %>" required>
+        </article>
+        <article>
+            <label for="fullauto">fullauto:</label>
+            <input type="radio" id="fullauto-yes" name="fullauto" value="true" <% if (item.fullauto === true) { %> checked <% } %> required>
+            <label for="fullauto-yes">Ja</label>
+            <input type="radio" id="fullauto-no" name="fullauto" value="false" <% if (item.fullauto === false) { %> checked <% } %>>
+            <label for="fullauto-no">Nee</label>
+        </article>
+        <article>
+            <label for="price">prijs:</label>
+            <input type="price" id="price" name="price" value="<%= item.price %>" required>
+        </article>
+        <article>
+        <label for="type">type:</label>
+        <select name="type" id="type">
+            <option value="HPA" <%= item.type === "HPA" ? "selected" : "" %>>HPA</option>
+            <option value="AEG" <%= item.type === "AEG" ? "selected" : "" %>>AEG</option>
+            <option value="GBB & co2" <%= item.type === "GBB & co2" ? "selected" : "" %>>GBB & co2</option>
+            <option value="spring" <%= item.type === "spring" ? "selected" : "" %>>Spring</option>
+        </select>
+        </article>
+        <button class="update-button" type="submit">Update item</button> 
+    </form>
+</section>
+</main>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,19 @@
+<%- include('partials/header'); %>
+<%- include('partials/aside'); %>
+
+    <main>
+        <h1>merken</h1>
+    <section class="brand-info">
+        <% for (let item of  arr) { %> <br>
+            <article>
+                <h1><%= item.name %></h1>
+                <img class="img-home" src="/assets/images/<%= item.imageURL %>" alt="">  
+                <p> land: <%= item.country %></p> 
+                <a href="<%= item.website%>">website</a>
+            </article> <br>
+        <% } %>
+        
+</section>
+</main>
+
+<%- include('partials/footer'); %>
