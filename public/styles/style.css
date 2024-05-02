@@ -10,19 +10,21 @@ html, body{
 body{
     display: grid;
     grid-template-areas: 
-    'aside header'
+    'aside main'
     'aside main'
     'footer footer';
+    grid-gap: -1px;
     font-family: system-ui;
     font-style: normal;
 }
 
-header{grid-area: header;}
 aside{grid-area: aside;}
 main{grid-area: main;}
 footer{grid-area: footer;}
 
-
+main{
+    width: 100%;
+}
 
 aside{
     border-left: 1px solid black;
@@ -93,7 +95,7 @@ aside section a{
 }
 
 .item-icon i:hover {
-    color: blue;
+    color: black;
 }
 
 .electric{
@@ -272,3 +274,45 @@ aside section a{
     margin: 1rem;
     padding: 20px;
 }
+
+/*update*/
+.update-section{
+    width: 450px;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.update-section img{
+    width: 400px;
+}
+
+.update-section form{
+    width: 300px;
+    text-align: start;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.update-section input, select{
+    margin-bottom: 10px;
+}
+
+.update-section button{
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: white;
+    font-size: medium;
+}
+
+.update-section button:hover{
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
+    font-size: medium;
+}
+

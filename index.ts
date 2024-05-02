@@ -1,7 +1,7 @@
 import { text } from "stream/consumers";
 /*import data from "./data/airsoft.json";*/
 /*import arr from "./data/Manufacturer.json";*/
-import { connect, getairsoftdata, getmanufacturerdata } from "./database";
+import { connect, getairsoftdata, getmanufacturerdata, getUserById, updateUser } from "./database";
 
 import { airsoft, manufacturer } from './interfaces';
 
@@ -12,6 +12,8 @@ import express from "express";
 const app = express();
 
 app.use(express.static("public"));
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 app.set("view engine", "ejs"); 
 app.set("port", 3000);
 
@@ -95,6 +97,26 @@ app.get("/product/:id", async (req, res) => {
         res.render("product", { product: product, arr: arr });
     
 });
+
+app.get("/product/:id/update", async(req, res) => {
+    const data = await getairsoftdata();
+    let id : number = parseInt(req.params.id);
+    let product = data.find((item) => item.id === id);
+    let item : airsoft | null = await getUserById(id);
+        res.render("update", {
+            product: product
+        });
+});
+
+app.post("/product/:id/update", async(req, res) => {
+    const data = await getairsoftdata();
+    let id : number = parseInt(req.params.id);
+    let item : airsoft = req.body;
+    const arr = await getmanufacturerdata();
+    await updateUser(id, item);
+    res.redirect("/product/" + id);
+});
+
 
 app.get("/brands", async (req, res) => {
 

@@ -53,11 +53,11 @@
                 <% } %>
             <% } %>
             <a href="/product/<%= item.id %>">info</a>
-            <p><% if (item.fullauto === true) { %>
-                fullauto
+            <% if (item.fullauto === true) { %>
+               <p style="border: 2px solid green; background-color: green; color: white; border-radius: 5px; height: 40px; margin-bottom: auto; margin-top: auto; margin-right: 5px;">fullauto</p>  
             <% } else { %>
-                no fullauto
-            <%}%></p>
+              <p style="border: 2px solid red; background-color: red; color: white; border-radius: 5px; height: 40px; margin-bottom: auto; margin-top: auto; margin-right: 5px;">no fullauto</p>  
+            <%}%>
         </section>    
     <% } %>
         
