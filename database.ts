@@ -37,7 +37,7 @@ export async function loadairsoftFromApi() {
     if (airsofting.length == 0) {
         console.log("Database is empty, loading airsoft from API")
         const data = JSON.parse(fs.readFileSync('./data/airsoft.json', 'utf8'));
-        await airsoftcollection.insertMany(data); 
+        await airsoftcollection.insertMany(data);
     }
 }
 
@@ -50,18 +50,13 @@ export async function loadmanufacturerFromApi() {
     }
 }
 
-
 export async function getUserById(id: number) {
     return await airsoftcollection.findOne({ id: id });
 }
 
-
 export async function updateUser(id: number, item: airsoft) {
-    // Converteer id naar een nummer
-    const numericId = id;
-    return await airsoftcollection.updateOne({ id: numericId }, { $set:  item });
+    return await airsoftcollection.updateOne({ id: id }, { $set: item });
 }
-
 
 
 
@@ -77,4 +72,3 @@ export async function connect() {
         console.error(error);
     }
 }
-

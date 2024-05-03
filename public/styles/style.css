@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-html, body {
+html, body{
     margin: 0;
     padding: 0;
 }
@@ -14,21 +14,25 @@ body{
     'aside main'
     'footer footer';
     grid-gap: -1px;
-    max-width: 100%;
     font-family: system-ui;
     font-style: normal;
 }
 
-header{grid-area: header;}
 aside{grid-area: aside;}
 main{grid-area: main;}
 footer{grid-area: footer;}
 
+a{
+    color: blue;
+}
 
+main{
+    width: 100%;
+}
 
 aside{
     border-left: 1px solid black;
-    max-width: 200px;
+    max-width: 300px;
 }
 
 aside section{
@@ -95,7 +99,7 @@ aside section a{
 }
 
 .item-icon i:hover {
-    color: blue;
+    color: black;
 }
 
 .electric{
@@ -185,7 +189,6 @@ aside section a{
     border-radius: 15px;
     padding: 10px;
     margin: 25px;
-    margin-top: 15%;
 }
 
 .info-top{
@@ -276,61 +279,53 @@ aside section a{
     padding: 20px;
 }
 
-/* update view*/
-
-.update-main{
-   align-items: center;
-   justify-content: center;
-}
-
-.update-container{
-    border: 2px solid black;
-    border-radius: 5px;
-    margin: auto;
-    margin-top: 20%;
+/*update*/
+.update-section{
     width: 450px;
-    padding: 20px;
-    align-content: center;
     align-items: center;
-    text-align: center;
-}
-
-.update-container form{
-    margin-left: auto;
-    margin-right: auto;
-    width: fit-content;
-    text-align: start; 
-}
-
-.update-container form article{
-    margin-bottom: 10px;
-}
-
-.update-container form article label{
-    width: 60px;
-}
-
-.update-button{
-    background-color: black;
-    color: white;
-    border-radius: 5px;
+    justify-content: center;
     border: 2px solid black;
-    margin-top: 15px;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-top: 3rem;
 }
 
-.update-container img{
+.update-section img{
     width: 400px;
 }
 
-/*foooter*/
-
-footer {
-    position: absolute;
-    bottom: 0%;
-    align-items: center;
+.update-section form{
+    width: 300px;
+    text-align: start;
     margin-left: auto;
     margin-right: auto;
+}
+
+.update-section input, select{
+    margin-bottom: 10px;
+}
+
+.update-section button{
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: white;
+    font-size: medium;
+}
+
+.update-section button:hover{
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
+    font-size: medium;
+}
+
+/*footer*/
+
+footer{
     width: 100%;
-    height: 60px;
     text-align: center;
+    bottom: 0px;
+    position: absolute;
 }
