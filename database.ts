@@ -54,11 +54,11 @@ export async function loadmanufacturerFromApi() {
 
 
 
-export async function getUserById(id: number) {
+export async function getAirsoftById(id: number) {
     return await airsoftcollection.findOne({ id: id });
 }
 
-export async function updateUser(id: number, item: airsoft) {
+export async function updateItem(id: number, item: airsoft) {
     return await airsoftcollection.updateOne({ id: id }, { $set: item });
 }
 

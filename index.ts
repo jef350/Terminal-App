@@ -1,7 +1,7 @@
 import { text } from "stream/consumers";
 /*import data from "./data/airsoft.json";*/
 /*import arr from "./data/Manufacturer.json";*/
-import { connect, getairsoftdata, getmanufacturerdata, getUserById, updateUser } from "./database";
+import { connect, getairsoftdata, getmanufacturerdata, getAirsoftById, updateItem } from "./database";
 
 import { airsoft, manufacturer } from './interfaces';
 
@@ -102,7 +102,7 @@ app.get("/product/:id/update", async(req, res) => {
     const data = await getairsoftdata();
     let id : number = parseInt(req.params.id);
     let product = data.find((item) => item.id === id);
-    let item : airsoft | null = await getUserById(id);
+    let item : airsoft | null = await getAirsoftById(id);
         res.render("update", {
             product: product
         });
@@ -113,7 +113,7 @@ app.post("/product/:id/update", async(req, res) => {
     let id : number = parseInt(req.params.id);
     let item : airsoft = req.body;
     const arr = await getmanufacturerdata();
-    await updateUser(id, item);
+    await updateItem(id, item);
     res.redirect("/product/" + id);
 });
 
