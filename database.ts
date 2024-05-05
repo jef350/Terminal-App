@@ -35,20 +35,24 @@ async function exit() {
 export async function loadairsoftFromApi() {
     const airsofting : airsoft[] = await getairsoftdata();
     if (airsofting.length == 0) {
-        console.log("Database is empty, loading airsoft from API")
-        const data = JSON.parse(fs.readFileSync('./data/airsoft.json', 'utf8'));
-        await airsoftcollection.insertMany(data);
+        console.log("Database is empty, loading users from API")
+        const response = await fetch("/data/airsoft.json");
+        const airsofters : airsoft[] = await response.json();
+        await airsoftcollection.insertMany(airsofters);
     }
 }
 
 export async function loadmanufacturerFromApi() {
-    const manufacturers : manufacturer[] = await getmanufacturerdata();
-    if (manufacturers.length == 0) {
-        console.log("Database is empty, loading manufacturer from API")
-        const data = JSON.parse(fs.readFileSync('./data/Manufacturer.json', 'utf8'));
-        await manufacturercollection.insertMany(data);
+    const manufacturer : manufacturer[] = await getmanufacturerdata();
+    if (manufacturer.length == 0) {
+        console.log("Database is empty, loading users from API")
+        const response = await fetch("/data/Manufacturer.json");
+        const manu : manufacturer[] = await response.json();
+        await manufacturercollection.insertMany(manu);
     }
 }
+
+
 
 export async function getUserById(id: number) {
     return await airsoftcollection.findOne({ id: id });
