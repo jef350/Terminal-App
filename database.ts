@@ -1,4 +1,4 @@
-import { Collection, MongoClient } from "mongodb";
+import { Collection, MongoClient} from "mongodb";
 import dotenv from "dotenv";
 import { airsoft, manufacturer } from "./interfaces";
 import fs from 'fs';
@@ -18,6 +18,69 @@ export async function getmanufacturerdata() {
     return await manufacturercollection.find({}).toArray();
 }
 
+export async function sortairsoftdata(req: any, data: airsoft[], arr: manufacturer[]) {
+    let itemsWithManufacturer = data.map(item => {
+        const manufacturer = arr.find((manufacturer: any) => manufacturer.id === item.manufacturer);
+        const manufacturerName = manufacturer ? manufacturer.name : ""; 
+        return { ...item, manufacturerName };
+    });
+
+    let q: string = req.query.q ? req.query.q.toString() : ''; 
+
+    let filteredItems: airsoft[] = itemsWithManufacturer.filter((item: airsoft) => {
+        for (const key of Object.keys(item)) {
+            const value = item[key as keyof airsoft];
+            if (Array.isArray(value)) {
+                for (const element of value) {
+                    if (element.toString().toLowerCase().includes(q.toLowerCase())) {
+                        return true;
+                    }
+                }
+            } else {
+                if (value.toString().toLowerCase().includes(q.toLowerCase())) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    });
+
+    const sortField = typeof req.query.sortField === "string" ? req.query.sortField : "name";
+    const sortDirection = typeof req.query.sortDirection === "string" ? req.query.sortDirection : "asc";
+
+    let sortedItems: airsoft[] = [];
+
+    try {
+        if (sortField === "name") {
+            sortedItems = filteredItems.sort((a, b) => (sortDirection === "asc" ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name)));
+        } else if (sortField === "price") {
+            sortedItems = filteredItems.sort((a, b) => (sortDirection === "asc" ? a.price - b.price : b.price - a.price));
+        } else if (sortField === "date") {
+            sortedItems = filteredItems.sort((a, b) => {
+                const dateA = new Date(a.releasedate).getTime();
+                const dateB = new Date(b.releasedate).getTime();
+                return sortDirection === "asc" ? dateA - dateB : dateB - dateA;
+            });
+        } else if (sortField === "brand") {
+            sortedItems = filteredItems.sort((a, b) => {
+                const manufacturerA = arr.find(manufacturer => manufacturer.id === a.manufacturer);
+                const manufacturerB = arr.find(manufacturer => manufacturer.id === b.manufacturer);
+                const manufacturerNameA = manufacturerA ? manufacturerA.name : "";
+                const manufacturerNameB = manufacturerB ? manufacturerB.name : "";
+                return sortDirection === "asc" ? manufacturerNameA.localeCompare(manufacturerNameB) : manufacturerNameB.localeCompare(manufacturerNameA);
+            });
+        } else if (sortField === "fullauto") {
+            sortedItems = filteredItems.sort((a, b) => (sortDirection === "asc" ? (a.fullauto ? -1 : 1) : (b.fullauto ? -1 : 1)));
+        } else {
+            sortedItems = filteredItems;
+        }
+    } catch (error) {
+        console.error(error);
+        sortedItems = filteredItems; // If an error occurs during sorting, return the unsorted data
+    }
+
+    return sortedItems;
+}
 
 
 

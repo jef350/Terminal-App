@@ -56,6 +56,10 @@ aside section a{
     background-color: white;
 }
 
+.hamburger-items{
+    margin-bottom: 1%;
+}
+
 .info-items{
     display: flex;
     flex-direction: row;
@@ -326,10 +330,6 @@ aside section a{
 
 /*footer*/
 
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;            
+footer {            
     text-align: center;
   }

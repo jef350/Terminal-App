@@ -24,9 +24,9 @@
         </form>
     </section>
         
-        
+    <section class="hamburger-items">
     <% for (let item of data) { %>
-        <section class="info-items">
+        <article class="info-items">
             <img class="img-home" src="/assets/images/<%= item.imageURL %>" alt=""> 
             <p><%= item.name %></p> 
             <p> &euro; <%= item.price %></p> 
@@ -58,10 +58,10 @@
             <% } else { %>
               <p style="border: 2px solid red; background-color: red; color: white; border-radius: 5px; height: 40px; margin-bottom: auto; margin-top: auto; margin-right: 5px;">no fullauto</p>  
             <%}%>
-        </section>    
+        </article>    
     <% } %>
-        
-</section>
+    </section>
+
 </main>
 
 <%- include('partials/footer'); %>
