@@ -27,7 +27,7 @@ a{
 }
 
 main{
-    width: 100%;
+    width: 90%;
 }
 
 aside{
@@ -58,7 +58,6 @@ aside section a{
 
 .hamburger-items{
     margin-bottom: 1%;
-    width: 100%;
 }
 
 .info-items{
@@ -67,7 +66,6 @@ aside section a{
     align-content: center;
     justify-content: space-between;
     text-align: center;
-    max-width: 90%;
     height: 10rem;
     margin: 1rem;
     border: 1px solid black;
