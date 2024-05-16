@@ -1,11 +1,12 @@
 <%- include('partials/header'); %>
 <%- include('partials/aside'); %>
-<main>
-<section class="update-section">
+<main class="product-main">
     <% let item = product %>
-
+    <section class="info-top">
     <h1>Update: <%= item.name %></h1>
     <img src="/assets/images/<%= item.imageURL %>" alt="">
+    </section>
+    <section class="info-bottom">
     <form action="/product/<%= item.id %>/update" method="POST">
         <article>   
             <label for="name">Name:</label>

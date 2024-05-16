@@ -30,7 +30,7 @@
             <img class="img-home" src="/assets/images/<%= item.imageURL %>" alt=""> 
             <p><%= item.name %></p> 
             <p> &euro; <%= item.price %></p> 
-            <a class="item-icon" href="/type's">
+            <a class="item-icon" href="/types">
                 <% if (item.type === 'HPA') { %>
                     <i class="bi bi-wind wind hpa"></i> 
                 <% } else if (item.type === 'AEG') { %>
@@ -54,9 +54,9 @@
             <% } %>
             <a href="/product/<%= item.id %>">info</a>
             <% if (item.fullauto === true) { %>
-               <p style="border: 2px solid green; background-color: green; color: white; border-radius: 5px; height: 40px; margin-bottom: auto; margin-top: auto; margin-right: 5px;">fullauto</p>  
+               <p class="fullauto">fullauto</p>  
             <% } else { %>
-              <p style="border: 2px solid red; background-color: red; color: white; border-radius: 5px; height: 40px; margin-bottom: auto; margin-top: auto; margin-right: 5px;">no fullauto</p>  
+              <p class="nofullauto">no fullauto</p>  
             <%}%>
         </article>    
     <% } %>

@@ -96,3 +96,7 @@ app.listen(3000, async () => {
 });
 
 
+app.use((req, res) => {
+    res.status(404);
+    res.render("404")
+});
