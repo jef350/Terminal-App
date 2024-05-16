@@ -26,17 +26,11 @@ a{
     color: blue;
 }
 
-main{
-    width: 90%;
-}
-
 aside{
     border-left: 1px solid black;
-    max-width: 300px;
 }
 
 aside section{
-    width: 200px;
     display: flex;
     flex-direction: column;
 }
@@ -76,7 +70,6 @@ aside section a{
     text-align: center;
     justify-content: center;
     align-content: center;
-    width: 150px;
     margin-left: 2rem;
 }
 
@@ -84,7 +77,6 @@ aside section a{
      text-align: center;
     justify-content: center;
     align-content: center;
-    width: 160px;
     margin-left: 2rem;
 }
 
@@ -92,11 +84,9 @@ aside section a{
     text-align: left;
     justify-content: left;
     align-content: left;
-    width: 160px;
 }
 
 .item-icon i {
-    width: 50px; 
     height: auto; 
     margin-left: 2rem;
 }
@@ -137,7 +127,6 @@ aside section a{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    max-width: 90%;
     margin-top: 1rem;
 }
 
@@ -160,7 +149,6 @@ aside section a{
 }
 
 .img-home{
-    width: 200px;
     height: 9rem;
     margin-left: 1rem;
     padding: 5px;
@@ -186,7 +174,6 @@ aside section a{
 .product-info{
     display: flex;
     flex-direction: column;
-    width: 500px;
     align-items: center;
     justify-content: center;
     border-radius: 15px;
@@ -197,7 +184,6 @@ aside section a{
 .info-top{
     display: flex;
     flex-direction: column;
-    width: 500px;
     align-items: center;
     justify-content: center;
     border-top: 1px solid black;
@@ -210,7 +196,6 @@ aside section a{
 .info-top img{
     display: flex;
     flex-direction: column;
-    width: 400px;
     align-items: center;
     justify-content: center;
 }
@@ -218,7 +203,6 @@ aside section a{
 .info-bottom{
     display: flex;
     flex-direction: column;
-    width: 500px;
     align-items: center;
     justify-content: center;
     padding: 10px;
@@ -248,15 +232,11 @@ aside section a{
     align-items: center;
     border: 1px solid black;
     border-radius: 15px;
-    width: 300px;
     margin: 20px;
     padding: 10px;
 }
 
-.type img {
-    max-width: 100%;
-    height: 250px;
-}
+
 
 .type p {
     margin-top: 10px;
@@ -280,14 +260,12 @@ aside section a{
 .brand-info article {
     border: 2px solid black;
     border-radius: 15px;
-    width: 250px;
     margin: 1rem;
     padding: 20px;
 }
 
 /*update*/
 .update-section{
-    width: 450px;
     align-items: center;
     justify-content: center;
     border: 2px solid black;
@@ -296,12 +274,7 @@ aside section a{
     margin-top: 3rem;
 }
 
-.update-section img{
-    width: 400px;
-}
-
 .update-section form{
-    width: 300px;
     text-align: start;
     margin-left: auto;
     margin-right: auto;
