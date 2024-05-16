@@ -1,0 +1,20 @@
+<%- include('partials/header'); %>
+<main>
+    <section class="login">
+        <h1>login</h1>
+        <form class="login-form" action="/" method="post">
+            <article>
+            <label for="username">gebruikersnaam: </label>
+            <input type="text" name="username" id="username" placeholder="gebruikersnaam...">
+            </article>
+            <article>
+                <label for="password">passwoord: </label>
+                <input type="password" name="password" id="password" placeholder="passwoord...s">
+            </article>
+            <button type="submit">verzenden</button>
+        </form>
+    </section>
+</main>
+
+
+<%- include('partials/footer'); %>

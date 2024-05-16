@@ -3,12 +3,12 @@
 
     <main>
         <section class="sort">
-        <form class="search-bar" action="/" method="get">
+        <form class="search-bar" action="/home" method="get">
             <button type="submit"><i class="bi bi-search"></i></button>
             <input  type="text" placeholder="zoeken..." id="search" name="q" value="<%= q %>">
         </form>
         
-        <form action="/" method="get">
+        <form action="/home" method="get">
             <select class="sort-select" name="sortField">
                 <option class="sort-option" value="name" <%= sortField === 'name' ? 'selected' : '' %>>Name</option>
                 <option class="sort-option" value="price" <%= sortField === 'price' ? 'selected' : '' %>>price</option>

@@ -68,6 +68,7 @@ aside section a{
     margin: 1rem;
     border: 1px solid black;
     border-radius: 15px;
+    width: 100%;
 }
 
 .info-items img{
@@ -321,5 +322,6 @@ aside section a{
 
 footer {            
     text-align: center;
+    bottom: 0;
   }
 

@@ -1,23 +1,33 @@
-import { text } from "stream/consumers";
-/*import data from "./data/airsoft.json";*/
-/*import arr from "./data/Manufacturer.json";*/
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 import { connect, getairsoftdata, getmanufacturerdata, getAirsoftById, updateItem, sortairsoftdata } from "./database";
-
 import { airsoft, manufacturer } from './interfaces';
 
+dotenv.config();
 
 import express from "express";
 
 
 const app = express();
-
+app.use(cookieParser());
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.set("view engine", "ejs"); 
-app.set("port", 3000);
+app.set("port", process.env.PORT);
 
 app.get('/', async (req, res) => {
+
+    res.render('login');
+})
+
+app.post("/", (req, res) => {
+    res.cookie("username", req.body.username);
+    res.redirect("/home")
+})
+
+
+app.get('/home', async (req, res) => {
     try {
         const data = await getairsoftdata();
         const arr = await getmanufacturerdata();
@@ -90,9 +100,9 @@ app.get("/types", (req, res) => {
 
 });
 
-app.listen(3000, async () => {
+app.listen(process.env.PORT, async () => {
     await connect();
-    console.log("Server is running on port 3000");
+    console.log(process.env.MONGO_URI);
 });
 
 
