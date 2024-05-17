@@ -26,10 +26,10 @@
     "connect-mongodb-session": "^2.4.1",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.4.5",
-    "ejs": "^3.1.9",
-    "express": "^4.18.3",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
     "express-session": "^1.18.0",
-    "mongodb": "^6.5.0",
+    "mongodb": "^6.6.2",
     "readline-sync": "^1.4.10"
   }
 }

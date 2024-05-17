@@ -1,14 +1,19 @@
 import { Collection, MongoClient} from "mongodb";
 import dotenv from "dotenv";
-import { airsoft, manufacturer } from "./interfaces";
-import fs from 'fs';
+import { airsoft, manufacturer, User } from "./interfaces";
+import bcrypt from "bcrypt";
+import { error } from "console";
 dotenv.config();
+
+export const MONGODB_URI = process.env.MONGODB_URI ?? "mongodb://localhost:27017";
 
 export const client = new MongoClient(process.env.MONGODB_URI || "mongodb+srv://8088:8088@cluster0.prdpq6c.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
 
 export const airsoftcollection : Collection<airsoft> = client.db("exercises").collection<airsoft>("airsoft");
 export const manufacturercollection : Collection<manufacturer> = client.db("exercises").collection<manufacturer>("manufacturer");
+export const userCollection = client.db("login-express").collection<User>("users");
 
+const saltRounds : number = 10;
 
 export async function getairsoftdata() {
     return await airsoftcollection.find({}).toArray();
@@ -84,17 +89,6 @@ export async function sortairsoftdata(req: any, data: airsoft[], arr: manufactur
 
 
 
-
-async function exit() {
-    try {
-        await client.close();
-        console.log("Disconnected from database");
-    } catch (error) {
-        console.error(error);
-    }
-    process.exit(0);
-}
-
 export async function loadairsoftFromApi() {
     const airsofting : airsoft[] = await getairsoftdata();
     if (airsofting.length == 0) {
@@ -125,7 +119,47 @@ export async function updateItem(id: number, item: airsoft) {
     return await airsoftcollection.updateOne({ id: id }, { $set: item });
 }
 
+async function createInitialUser() {
+    if (await userCollection.countDocuments() > 0) {
+        return;
+    }
+    let email : string | undefined = process.env.ADMIN_EMAIL;
+    let password : string | undefined = process.env.ADMIN_PASSWORD;
+    if (email === undefined || password === undefined) {
+        throw new Error("ADMIN_EMAIL and ADMIN_PASSWORD must be set in environment");
+    }
+    await userCollection.insertOne({
+        email: email,
+        password: await bcrypt.hash(password, saltRounds),
+        role: "ADMIN"
+    });
+}
 
+export async function login(email:string, password: string) {
+    if (email === "" || password === "") {
+        throw new Error("email en passwoord zijn nodig om verder te gaan");
+    }
+    let user: User | null = await userCollection.findOne<User>({email: email});
+    if (user) {
+        if (await bcrypt.compare(password, user.password!)) {
+            return user;
+        }else{
+            throw new Error("passwoord is verkeerd");
+        }
+    }else{
+        throw new Error("gebruiker niet gevonden");
+    }
+}
+
+async function exit() {
+    try {
+        await client.close();
+        console.log("Disconnected from database");
+    } catch (error) {
+        console.error(error);
+    }
+    process.exit(0);
+}
 
 
 export async function connect() {
@@ -133,6 +167,7 @@ export async function connect() {
         await client.connect();
         await loadairsoftFromApi(); 
         await loadmanufacturerFromApi();  
+        await createInitialUser();
         console.log("Connected to database");
         process.on("SIGINT", exit);
     } catch (error) {
