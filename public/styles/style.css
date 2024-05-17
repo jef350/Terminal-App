@@ -6,6 +6,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: system-ui, sans-serif;
+    background-color: #f4f4f9;
 }
 
 /* Grid layout voor de hele site */
@@ -35,11 +36,6 @@ aside {
     background-color: #f4f4f9;
 }
 
-main {
-    grid-area: main;
-    background-color: #f4f4f9;
-}
-
 footer {
     grid-area: footer;
     text-align: center;
@@ -64,31 +60,33 @@ aside section a {
 .search-bar {
     margin-bottom: 1rem;
     font-size: 1rem;
+    display: flex;
+    align-items: center;
 }
 
 .search-bar button {
     border: none;
-    background-color: #f4f4f9; /* Zelfde achtergrondkleur als de pagina */
-    padding: 0; /* Verwijder padding om knopgrootte aan te passen */
-    cursor: pointer; /* Verander cursor naar pointer voor betere gebruikerservaring */
-    vertical-align: middle; /* Zorg ervoor dat de knop verticaal gecentreerd is */
+    background-color: #f4f4f9;
+    padding: 0;
+    cursor: pointer;
+    vertical-align: middle;
     font-size: 1rem;
 }
 
 .search-bar button i {
     border: none;
-    background-color: #f4f4f9; /* Zelfde achtergrondkleur als de pagina */
-    padding: 0; /* Verwijder padding om knopgrootte aan te passen */
-    cursor: pointer; /* Verander cursor naar pointer voor betere gebruikerservaring */
-    display: block; /* Verwijder ongewenste ruimte onder de afbeelding */
+    background-color: #f4f4f9;
+    padding: 0;
+    cursor: pointer;
+    display: block;
     font-size: 1rem;
 }
 
-.search-bar input{
+.search-bar input {
     border-radius: 5px;
     font-size: 1rem;
+    margin-left: 10px;
 }
-
 
 .hamburger-items {
     width: 95%;
@@ -235,7 +233,9 @@ aside section a {
 /* Product page */
 .product-main {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    align-content: center;
     justify-content: center;
     background-color: #f4f4f9;
 }
@@ -253,6 +253,20 @@ aside section a {
     width: 50%;
 }
 
+.update-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 25px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    margin-right: 50%;
+}
+
 .info-top {
     display: flex;
     flex-direction: column;
@@ -262,8 +276,8 @@ aside section a {
 }
 
 .info-top img {
-    width: 100%;
-    height: 400px;
+    width: 90%;
+    height: auto;
     margin: 1%;
 }
 
@@ -443,4 +457,97 @@ footer {
 
 .login-page .login-form button:hover {
     background-color: #555;
+}
+
+/* Media Queries voor Responsiviteit */
+@media (max-width: 768px) {
+    body {
+        grid-template-areas: 
+        'main'
+        'aside'
+        'footer';
+    }
+
+    aside {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid black;
+    }
+
+    .info-items {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .info-items img {
+        width: 50%;
+    }
+
+    .info-items p,
+    .info-items ul {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .fullauto, .nofullauto {
+        width: auto;
+    }
+
+    .product-info, .type, .brand-info article {
+        width: 100%;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-bar button, .search-bar input {
+        width: 100%;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .info-items{
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .info-items img {
+        width: 60%;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-bar button, .search-bar input {
+        width: 100%;
+        font-size: 1.5rem;
+    }
+
+    .info-items p,
+    .info-items ul {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .product-info, .type, .brand-info article {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .sort {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .sort form button {
+        width: 100%;
+    }
 }

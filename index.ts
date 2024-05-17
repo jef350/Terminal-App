@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 import { connect, getairsoftdata, getmanufacturerdata, getAirsoftById, updateItem, sortairsoftdata } from "./database";
 import { airsoft, manufacturer } from './interfaces';
 import bcrypt from 'bcrypt';
+import session from "./session";
 
 dotenv.config();
 
@@ -10,6 +11,7 @@ import express from "express";
 
 
 const app = express();
+app.use(session);
 app.use(cookieParser());
 app.use(express.static("public"));
 app.use(express.json());
@@ -103,9 +105,6 @@ app.get("/types", (req, res) => {
 
 app.listen(process.env.PORT, async () => {
     await connect();
-    const saltRounds : number = 10;
-    let hashedPassword : string = await bcrypt.hash("hunter2", saltRounds);
-    console.log(hashedPassword)
     console.log(process.env.MONGO_URI);
 });
 

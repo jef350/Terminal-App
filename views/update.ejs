@@ -1,37 +1,38 @@
 <%- include('partials/header'); %>
 <%- include('partials/aside'); %>
 <main class="product-main">
-    <% let item = product %>
-    <section class="info-top">
-    <h1>Update: <%= item.name %></h1>
-    <img src="/assets/images/<%= item.imageURL %>" alt="">
+    <section class="update-info">
+        <article class="info-top">
+            <% let item = product %>
+            <h1>Update: <%= item.name %></h1>
+            <img src="/assets/images/<%= item.imageURL %>" alt="<%= item.name %>">
+        </article>
+        <article class="info-bottom">
+            <form action="/product/<%= item.id %>/update" method="POST">
+                <article>   
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" value="<%= item.name %>" required>
+                </article>
+                <article>
+                    <label for="price">Price:</label>
+                    <input type="number" id="price" name="price" value="<%= item.price %>" required>
+                </article>
+                <article>
+                    <label for="releasedate">Datum:</label>
+                    <input type="date" name="releasedate" id="releasedate" value="<%= item.releasedate %>">
+                </article>   
+                <article>
+                    <label for="type">Type:</label>
+                    <select id="type" name="type" required>
+                        <option value="HPA" <% if (item.type === 'HPA') { %>selected<% } %>>HPA</option>
+                        <option value="GBB & co2" <% if (item.type === 'GBB & co2') { %>selected<% } %>>GBB & co2</option>
+                        <option value="spring" <% if (item.type === 'spring') { %>selected<% } %>>Spring</option>
+                        <option value="AEG" <% if (item.type === 'AEG') { %>selected<% } %>>AEG</option>
+                    </select>
+                </article>
+                <button type="submit">Update item</button>
+            </form>
+        </article>
     </section>
-    <section class="info-bottom">
-    <form action="/product/<%= item.id %>/update" method="POST">
-        <article>   
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" value="<%= item.name %>" required>
-        </article>
-        <article>
-            <label for="price">Price:</label>
-            <input type="number" id="price" name="price" value="<%= item.price %>" required>
-        </article>
-        <article>
-            <label for="releasedate">datum:</label>
-            <input type="date" name="releasedate" id="releasedate" value="<%= item.releasedate %>">
-        </article>  
-        <article>
-            <label for="type">Type:</label>
-            <select id="type" name="type" required>
-                <option value="HPA" <% if (item.type === 'HPA') { %>selected<% } %>>HPA</option>
-                <option value="GBB & co2" <% if (item.type === 'GBB & co2') { %>selected<% } %>>GBB & co2</option>
-                <option value="spring" <% if (item.type === 'spring') { %>selected<% } %>>Spring</option>
-                <option value="AEG" <% if (item.type === 'AEG') { %>selected<% } %>>AEG</option>
-            </select>
-        </article>
-        <button type="submit">Update item</button>
-    </form>
-</section>
 </main>
-
 <%- include('partials/footer'); %>

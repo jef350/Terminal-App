@@ -14,7 +14,7 @@
                 <li>prijs: &euro; <%= item.price %> </li>
                 <li>type: <a href="/types"><%= item.type %></a></li>
                 <li>uitgave: <%= item.releasedate %></li>
-                <li>fullauto: <%= item.fullauto ? 'Ja' : 'Nee' %></li>
+                <li>fullauto: <%= item.fullauto ? 'Ja' : 'Nee' %></li> 
                 <% for (let brand of arr) { %>
                     <% if (brand.id === item.manufacturer) { %> 
                         <li><a href="/brands"><%= brand.name %></a></li>
