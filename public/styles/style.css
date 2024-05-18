@@ -1,64 +1,97 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-html, body{
+body {
     margin: 0;
     padding: 0;
+    font-family: system-ui, sans-serif;
+    background-color: #f4f4f9;
 }
 
-body{
+/* Grid layout voor de hele site */
+body {
     display: grid;
     grid-template-areas: 
     'aside main'
     'aside main'
     'footer footer';
     grid-gap: -1px;
-    font-family: system-ui;
-    font-style: normal;
-   /* background-image: url(/assets/images/speedqbback.png);
-    background-position: center;*/
+    min-height: 100vh;
 }
 
-aside{grid-area: aside;}
-main{grid-area: main;}
-footer{grid-area: footer;}
-
-a{
-    color: blue;
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-aside{
+aside {
+    grid-area: aside;
     border-left: 1px solid black;
     width: 110%;
     max-height: 100%;
+    background-color: #f4f4f9;
 }
 
-aside section{
+footer {
+    grid-area: footer;
+    text-align: center;
+    background-color: #f4f4f9;
+}
+
+a {
+    color: blue;
+}
+
+aside section {
     display: flex;
     flex-direction: column;
 }
 
-aside section a{
+aside section a {
     padding: 15px;
     text-decoration: none;
     color: black;
 }
 
-.search-bar{
+.search-bar {
     margin-bottom: 1rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
 }
 
-.search-bar button{
+.search-bar button {
     border: none;
-    background-color: white;
+    background-color: #f4f4f9;
+    padding: 0;
+    cursor: pointer;
+    vertical-align: middle;
+    font-size: 1rem;
 }
 
-.hamburger-items{
+.search-bar button i {
+    border: none;
+    background-color: #f4f4f9;
+    padding: 0;
+    cursor: pointer;
+    display: block;
+    font-size: 1rem;
+}
+
+.search-bar input {
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.hamburger-items {
     width: 95%;
 }
 
-.info-items{
+.info-items {
     display: flex;
     flex-direction: row;
     align-content: center;
@@ -69,29 +102,24 @@ aside section a{
     border: 1px solid black;
     border-radius: 15px;
     width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.info-items img{
+.info-items img {
     width: 15%;
 }
 
-.info-items p{
+.info-items p,
+.info-items ul {
     text-align: center;
-    justify-content: center;
-    align-content: center;
-    margin-left: 2rem;
-    width: 30%;
-}
-
-.info-items ul{
-     text-align: center;
     justify-content: center;
     align-content: center;
     margin-left: 2rem;
     width: 20%;
 }
 
-.info-items li{
+.info-items li {
     text-align: left;
     justify-content: left;
     align-content: left;
@@ -107,22 +135,22 @@ aside section a{
     color: black;
 }
 
-.electric{
+.electric {
     color: red;
     font-size: large;
 }
 
-.gas{
+.gas {
     color: green;
     font-size: large;
 }
 
-.hpa{
+.hpa {
     color: blue;
     font-size: large;
 }
 
-.spring{
+.spring {
     color: gray;
     font-size: large;
 }
@@ -135,29 +163,25 @@ aside section a{
     color: red;
 }
 
-.fullauto{
+.fullauto {
     background-color: green;
     border: 2px solid green;
     border-radius: 5px;
     width: 10%;
     height: 20%;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-right: 1%;
+    margin: auto 1%;
 }
 
-.nofullauto{
+.nofullauto {
     background-color: red;
     border: 2px solid red;
     border-radius: 5px;
     width: 10%;
     height: 20%;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-right: 1%;
+    margin: auto 1%;
 }
 
-.sort{
+.sort {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -165,18 +189,22 @@ aside section a{
     width: 95%;
 }
 
-.sort form button{
+.sort form button {
     background-color: white;
     border: none;
     font-size: medium;
+    background-color: #f4f4f9;
+    font-size: 1rem;
 }
 
-.sort-select{
+.sort-select {
     border: none;
     justify-content: space-between;
+    background-color: #f4f4f9;
+    font-size: 1rem;
 }
 
-.info-items a{
+.info-items a {
     text-align: center;
     justify-content: center;
     align-content: center;
@@ -184,31 +212,33 @@ aside section a{
     width: 5%;
 }
 
-.img-home{
+.img-home {
     height: 9rem;
     margin-left: 1rem;
     padding: 5px;
 }
 
-.a-brands{
+.a-brands {
     text-decoration: none;
     color: black;
     width: 5%;
 }
 
-.a-brands:hover{
+.a-brands:hover {
     text-decoration: none;
     color: blue;
 }
 
-/*product page*/
-
-.product-main{
+/* Product page */
+.product-main {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #f4f4f9;
 }
 
-.product-info{
+.product-info {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -216,65 +246,58 @@ aside section a{
     border-radius: 15px;
     padding: 10px;
     margin: 25px;
-}
-
-.info-top{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 50%;
 }
 
-.info-top img{
+.info-top {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 70%;
+    background-color: #fff;
+}
+
+.info-top img {
+    width: 100%;
     height: 400px;
     margin: 1%;
 }
 
-.info-bottom{
+.info-bottom {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 10px;
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border-top: 1px solid black;
-    width: 50%;
+    background-color: #fff;
+    border-top: 2px solid black;
+    margin-top: 3rem;
 }
 
-.info-bottom form button{
+.info-bottom form button {
     margin-top: 3%;
     background-color: black;
     border: 2px solid black;
     color: white;
     font-size: medium;
     border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
-/*type's*/
+.info-bottom form button:hover {
+    background-color: #555;
+}
 
-.types{
+/* Types */
+.types {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
     text-align: center;
-    margin-right: auto;
-    margin-left: auto;
-    
+    margin: 0 auto;
+    background-color: #f4f4f9;
 }
 
 .type {
@@ -286,9 +309,11 @@ aside section a{
     margin: 20px;
     padding: 10px;
     width: 22%;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.type img{
+.type img {
     width: 100%;
     height: 200px;
 }
@@ -300,14 +325,13 @@ aside section a{
     padding: 15px;
 }
 
-
-/*brands*/
-
-.brand-info{
+/* Brands */
+.brand-info {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
     text-align: center;
+    background-color: #f4f4f9;
 }
 
 .brand-info article {
@@ -316,12 +340,190 @@ aside section a{
     margin: 1rem;
     padding: 20px;
     width: 22%;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/*footer*/
-
-footer {            
+/* Footer */
+footer {
     text-align: center;
     bottom: 0;
-  }
+    padding: 20px;
+    background-color: #f4f4f9;
+}
 
+/* Login */
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+
+.login-page body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f9;
+}
+
+.login-page main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.login-page .login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+
+.login-page .login h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.login-page .login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-page .login-form article {
+    margin-bottom: 15px;
+}
+
+.login-page .login-form label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.login-page .login-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.login-page .login-form input:focus {
+    border-color: #333;
+}
+
+.login-page .login-form button {
+    padding: 10px 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-page .login-form button:hover {
+    background-color: #555;
+}
+
+/* Media Queries voor Responsiviteit */
+@media (max-width: 768px) {
+    body {
+        grid-template-areas: 
+        'main'
+        'aside'
+        'footer';
+    }
+
+    aside {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid black;
+    }
+
+    .info-items {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .info-items img {
+        width: 50%;
+    }
+
+    .info-items p,
+    .info-items ul {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .fullauto, .nofullauto {
+        width: auto;
+    }
+
+    .product-info, .type, .brand-info article {
+        width: 100%;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-bar button, .search-bar input {
+        width: 100%;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-items img {
+        width: 100%;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-bar button, .search-bar input {
+        width: 100%;
+        font-size: 1.5rem;
+    }
+
+    .info-items p,
+    .info-items ul {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .product-info, .type, .brand-info article {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .sort {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .sort form button {
+        width: 100%;
+    }
+}
