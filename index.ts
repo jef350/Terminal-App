@@ -1,10 +1,8 @@
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-import { connect, getairsoftdata, getmanufacturerdata, getAirsoftById, updateItem, sortairsoftdata, login } from "./database";
-import { airsoft, manufacturer, User } from './interfaces';
+import { connect, getairsoftdata, getmanufacturerdata, getAirsoftById, updateItem, sortairsoftdata } from "./database";
+import { airsoft, manufacturer } from './interfaces';
 import bcrypt from 'bcrypt';
-import session from "./session";
-import { secureMiddleware } from "./secureMiddleware";
 
 dotenv.config();
 
@@ -100,14 +98,12 @@ app.get("/types", (req, res) => {
     res.render("types");
 });
 
-app.listen(app.get("port"), async () => {
-    try {
-        await connect();
-        console.log(`Server running on port ${app.get("port")}`);
-    } catch (e) {
-        console.log(e);
-        process.exit(1);
-    }
+app.listen(process.env.PORT, async () => {
+    await connect();
+    const saltRounds : number = 10;
+    let hashedPassword : string = await bcrypt.hash("hunter2", saltRounds);
+    console.log(hashedPassword)
+    console.log(process.env.MONGO_URI);
 });
 
 app.use((req, res) => {

@@ -174,4 +174,3 @@ export async function connect() {
         console.error(error);
     }
 }
-
