@@ -116,7 +116,7 @@
         "price": 320,
         "fullauto": true,
         "releasedate": "2022-10-28",
-        "imageURL": "specna-arms.webp",
+        "imageURL": "specna-arms.png",
         "type": "AEG",
         "playtypes": ["milsim", "outdoor"],
         "manufacturer": 109

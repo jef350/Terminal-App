@@ -1,7 +1,6 @@
 import { Collection, MongoClient} from "mongodb";
 import dotenv from "dotenv";
-import { airsoft, manufacturer } from "./interfaces";
-import fs from 'fs';
+import { airsoft, manufacturer } from "./types";
 dotenv.config();
 
 export const client = new MongoClient(process.env.MONGODB_URI || "mongodb+srv://8088:8088@cluster0.prdpq6c.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
@@ -76,7 +75,7 @@ export async function sortairsoftdata(req: any, data: airsoft[], arr: manufactur
         }
     } catch (error) {
         console.error(error);
-        sortedItems = filteredItems; // If an error occurs during sorting, return the unsorted data
+        sortedItems = filteredItems; 
     }
 
     return sortedItems;

@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import { connect, getairsoftdata, getmanufacturerdata, getAirsoftById, updateItem, sortairsoftdata } from "./database";
-import { airsoft, manufacturer } from './interfaces';
+import { airsoft, manufacturer } from './types';
 
 dotenv.config();
 

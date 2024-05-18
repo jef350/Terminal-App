@@ -71,6 +71,7 @@ aside section a {
     cursor: pointer;
     vertical-align: middle;
     font-size: 1rem;
+    margin-right: 10px;
 }
 
 .search-bar button i {
@@ -187,6 +188,7 @@ aside section a {
     justify-content: space-between;
     margin-top: 1rem;
     width: 95%;
+    font-size: 1rem;
 }
 
 .sort form button {
@@ -194,6 +196,7 @@ aside section a {
     border: none;
     font-size: medium;
     background-color: #f4f4f9;
+    font-size: 1rem;
     font-size: 1rem;
 }
 
