@@ -39,6 +39,25 @@ footer {
     background-color: #f4f4f9;
 }
 
+.landingspage{
+    display: flex;
+    flex-direction: row;
+}
+
+.landingspage a{
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.landingspage a:hover{
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: underline;
+    color: blue;
+}
+
 a {
     color: blue;
 }

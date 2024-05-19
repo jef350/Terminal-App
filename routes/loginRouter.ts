@@ -6,12 +6,20 @@ export const loginRouter = () => {
     const router = express.Router();
 
     router.get('/login', (req, res) => {
-        res.render('login');
+        res.render('login', { error: null });
     });
 
     router.post('/login', async (req, res) => {
         const email: string = req.body.email;
         const password: string = req.body.password;
+
+        // Debugging
+        console.log('Received login request with email:', email);
+        console.log('Received login request with password:', password);
+
+        if (!email || !password) {
+            return res.render('login', { error: 'Email and password are required.' });
+        }
         try {
             const user: User | null = await login(email, password);
             if (user) {
@@ -20,11 +28,11 @@ export const loginRouter = () => {
                 console.log('User session set:', req.session.user);
                 res.redirect('/');
             } else {
-                res.redirect('/login');
+                res.render('login', { error: 'Invalid email or password.' });
             }
         } catch (e: any) {
             console.error('Login error:', e);
-            res.redirect('/login');
+            res.render('login', { error: 'An error occurred. Please try again.' });
         }
     });
 

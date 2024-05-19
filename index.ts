@@ -8,6 +8,7 @@ import { airsoft, User } from './types';
 import { secureMiddleware } from './secureMiddleware';
 import { loginRouter } from './routes/loginRouter';
 import { homeRouter } from './routes/homeRouter';
+import { registerRouter } from './routes/registerRouter'; // Import registerRouter function
 import { flashMiddleware } from "./flashMiddleware";
 
 dotenv.config();
@@ -29,6 +30,7 @@ app.set('views', path.join(__dirname, 'views'));
 // Use routers
 app.use(loginRouter());
 app.use(homeRouter());
+app.use(registerRouter()); // Use registerRouter function
 
 // Port setup
 app.set('port', process.env.PORT || 3000);
@@ -120,7 +122,6 @@ app.get('/types', (req, res) => {
   res.render('types');
 });
 
-// Connect to the database and start the server
 app.listen(process.env.PORT, async () => {
   try {
     await connect();

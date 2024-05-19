@@ -131,37 +131,44 @@ export async function clearDatabase() {
 const saltRounds: number = 10;
 
 async function createInitialUser() {
-    if ((await userCollection.countDocuments()) > 0) {
-        console.log('Users already exist in the database');
-        return;
-    }
-
+    // Check if admin and default user accounts exist
     const adminEmail = process.env.ADMIN_EMAIL;
     const adminPassword = process.env.ADMIN_PASSWORD;
     const userEmail = process.env.USER_EMAIL;
     const userPassword = process.env.USER_PASSWORD;
 
     if (!adminEmail || !adminPassword || !userEmail || !userPassword) {
-        throw new Error("ADMIN_EMAIL, ADMIN_PASSWORD, USER_EMAIL and USER_PASSWORD must be set in environment");
+        throw new Error("ADMIN_EMAIL, ADMIN_PASSWORD, USER_EMAIL, and USER_PASSWORD must be set in environment");
     }
 
-    const hashedAdminPassword = await bcrypt.hash(adminPassword, saltRounds);
-    const hashedUserPassword = await bcrypt.hash(userPassword, saltRounds);
+    const adminExists = await userCollection.findOne({ email: adminEmail });
+    const userExists = await userCollection.findOne({ email: userEmail });
 
-    const admin: User = {
-        email: adminEmail,
-        password: hashedAdminPassword,
-        role: "ADMIN"
-    };
+    if (!adminExists) {
+        const hashedAdminPassword = await bcrypt.hash(adminPassword, saltRounds);
+        const admin: User = {
+            email: adminEmail,
+            password: hashedAdminPassword,
+            role: "ADMIN"
+        };
+        await userCollection.insertOne(admin);
+        console.log('Admin user created:', adminEmail);
+    } else {
+        console.log('Admin user already exists:', adminEmail);
+    }
 
-    const user: User = {
-        email: userEmail,
-        password: hashedUserPassword,
-        role: "USER"
-    };
-
-    await userCollection.insertMany([admin, user]);
-    console.log('Initial admin and user created:', adminEmail, userEmail);
+    if (!userExists) {
+        const hashedUserPassword = await bcrypt.hash(userPassword, saltRounds);
+        const user: User = {
+            email: userEmail,
+            password: hashedUserPassword,
+            role: "USER"
+        };
+        await userCollection.insertOne(user);
+        console.log('Default user created:', userEmail);
+    } else {
+        console.log('Default user already exists:', userEmail);
+    }
 }
 
 
