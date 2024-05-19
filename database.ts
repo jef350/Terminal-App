@@ -1,13 +1,20 @@
-import { Collection, MongoClient} from "mongodb";
+import { Collection, MongoClient } from "mongodb";
 import dotenv from "dotenv";
-import { airsoft, manufacturer } from "./types";
+import bcrypt from "bcrypt";
+import { airsoft, manufacturer, User } from "./types";
+import fs from "fs/promises";
+import path from "path";
+
 dotenv.config();
 
-export const client = new MongoClient(process.env.MONGODB_URI || "mongodb+srv://8088:8088@cluster0.prdpq6c.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+const uri = process.env.MONGO_URI || "mongodb://localhost:27017";
+export const MONGODB_URI = uri;
 
-export const airsoftcollection : Collection<airsoft> = client.db("exercises").collection<airsoft>("airsoft");
-export const manufacturercollection : Collection<manufacturer> = client.db("exercises").collection<manufacturer>("manufacturer");
+export const client = new MongoClient(MONGODB_URI);
 
+export const airsoftcollection: Collection<airsoft> = client.db("exercises").collection<airsoft>("airsoft");
+export const manufacturercollection: Collection<manufacturer> = client.db("exercises").collection<manufacturer>("manufacturer");
+export const userCollection = client.db("login-express").collection<User>("users");
 
 export async function getairsoftdata() {
     return await airsoftcollection.find({}).toArray();
@@ -18,15 +25,15 @@ export async function getmanufacturerdata() {
 }
 
 export async function sortairsoftdata(req: any, data: airsoft[], arr: manufacturer[]) {
-    let itemsWithManufacturer = data.map(item => {
-        const manufacturer = arr.find((manufacturer: any) => manufacturer.id === item.manufacturer);
-        const manufacturerName = manufacturer ? manufacturer.name : ""; 
+    const itemsWithManufacturer = data.map(item => {
+        const manufacturer = arr.find(m => m.id === item.manufacturer);
+        const manufacturerName = manufacturer ? manufacturer.name : "";
         return { ...item, manufacturerName };
     });
 
-    let q: string = req.query.q ? req.query.q.toString() : ''; 
+    const q: string = req.query.q ? req.query.q.toString() : '';
 
-    let filteredItems: airsoft[] = itemsWithManufacturer.filter((item: airsoft) => {
+    const filteredItems: airsoft[] = itemsWithManufacturer.filter(item => {
         for (const key of Object.keys(item)) {
             const value = item[key as keyof airsoft];
             if (Array.isArray(value)) {
@@ -44,84 +51,127 @@ export async function sortairsoftdata(req: any, data: airsoft[], arr: manufactur
         return false;
     });
 
-    const sortField = typeof req.query.sortField === "string" ? req.query.sortField : "name";
-    const sortDirection = typeof req.query.sortDirection === "string" ? req.query.sortDirection : "asc";
+    const sortField = req.query.sortField || "name";
+    const sortDirection = req.query.sortDirection || "asc";
 
-    let sortedItems: airsoft[] = [];
-
-    try {
+    const sortedItems: airsoft[] = filteredItems.sort((a, b) => {
         if (sortField === "name") {
-            sortedItems = filteredItems.sort((a, b) => (sortDirection === "asc" ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name)));
+            return sortDirection === "asc" ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
         } else if (sortField === "price") {
-            sortedItems = filteredItems.sort((a, b) => (sortDirection === "asc" ? a.price - b.price : b.price - a.price));
+            return sortDirection === "asc" ? a.price - b.price : b.price - a.price;
         } else if (sortField === "date") {
-            sortedItems = filteredItems.sort((a, b) => {
-                const dateA = new Date(a.releasedate).getTime();
-                const dateB = new Date(b.releasedate).getTime();
-                return sortDirection === "asc" ? dateA - dateB : dateB - dateA;
-            });
+            const dateA = new Date(a.releasedate).getTime();
+            const dateB = new Date(b.releasedate).getTime();
+            return sortDirection === "asc" ? dateA - dateB : dateB - dateA;
         } else if (sortField === "brand") {
-            sortedItems = filteredItems.sort((a, b) => {
-                const manufacturerA = arr.find(manufacturer => manufacturer.id === a.manufacturer);
-                const manufacturerB = arr.find(manufacturer => manufacturer.id === b.manufacturer);
-                const manufacturerNameA = manufacturerA ? manufacturerA.name : "";
-                const manufacturerNameB = manufacturerB ? manufacturerB.name : "";
-                return sortDirection === "asc" ? manufacturerNameA.localeCompare(manufacturerNameB) : manufacturerNameB.localeCompare(manufacturerNameA);
-            });
+            const manufacturerA = arr.find(m => m.id === a.manufacturer);
+            const manufacturerB = arr.find(m => m.id === b.manufacturer);
+            const manufacturerNameA = manufacturerA ? manufacturerA.name : "";
+            const manufacturerNameB = manufacturerB ? manufacturerB.name : "";
+            return sortDirection === "asc" ? manufacturerNameA.localeCompare(manufacturerNameB) : manufacturerNameB.localeCompare(manufacturerNameA);
         } else if (sortField === "fullauto") {
-            sortedItems = filteredItems.sort((a, b) => (sortDirection === "asc" ? (a.fullauto ? -1 : 1) : (b.fullauto ? -1 : 1)));
-        } else {
-            sortedItems = filteredItems;
+            return sortDirection === "asc" ? (a.fullauto ? -1 : 1) : (b.fullauto ? -1 : 1);
         }
-    } catch (error) {
-        console.error(error);
-        sortedItems = filteredItems; 
-    }
+        return 0;
+    });
 
     return sortedItems;
 }
 
-
-
-
-async function exit() {
-    try {
-        await client.close();
-        console.log("Disconnected from database");
-    } catch (error) {
-        console.error(error);
-    }
-    process.exit(0);
-}
-
 export async function loadairsoftFromApi() {
-    const airsofting : airsoft[] = await getairsoftdata();
-    if (airsofting.length == 0) {
-        console.log("Database is empty, loading users from API")
-        const response = await fetch("/data/airsoft.json");
-        const airsofters : airsoft[] = await response.json();
-        await airsoftcollection.insertMany(airsofters);
+    try {
+        const airsofting: airsoft[] = await getairsoftdata();
+        if (airsofting.length === 0) {
+            console.log("Database is empty, loading airsoft data from API");
+            const filePath = path.resolve(__dirname, 'data', 'airsoft.json');
+            const data = await fs.readFile(filePath, 'utf-8');
+            const airsofters: airsoft[] = JSON.parse(data);
+            await airsoftcollection.insertMany(airsofters);
+            console.log("Airsoft data successfully loaded into the database.");
+        }
+    } catch (error) {
+        console.error("Failed to load airsoft data:", error);
     }
 }
 
 export async function loadmanufacturerFromApi() {
-    const manufacturer : manufacturer[] = await getmanufacturerdata();
-    if (manufacturer.length == 0) {
-        console.log("Database is empty, loading users from API")
-        const response = await fetch("/data/Manufacturer.json");
-        const manu : manufacturer[] = await response.json();
-        await manufacturercollection.insertMany(manu);
+    try {
+        const manufacturer: manufacturer[] = await getmanufacturerdata();
+        if (manufacturer.length === 0) {
+            console.log("Database is empty, loading manufacturer data from API");
+            const filePath = path.resolve(__dirname, 'data', 'Manufacturer.json');
+            const data = await fs.readFile(filePath, 'utf-8');
+            const manu: manufacturer[] = JSON.parse(data);
+            await manufacturercollection.insertMany(manu);
+            console.log("Manufacturer data successfully loaded into the database.");
+        }
+    } catch (error) {
+        console.error("Failed to load manufacturer data:", error);
     }
 }
-
-
 
 export async function getAirsoftById(id: number) {
     return await airsoftcollection.findOne({ id: id });
 }
 
 export async function updateItem(id: number, item: airsoft) {
-    return await airsoftcollection.updateOne({ id: id }, { $set: item });
+    await airsoftcollection.updateOne({ id: id }, { $set: item });
+}
+
+export async function clearDatabase() {
+    try {
+        await airsoftcollection.deleteMany({});
+        await manufacturercollection.deleteMany({});
+        console.log("Database collections cleared successfully.");
+    } catch (error) {
+        console.error("Failed to clear database collections:", error);
+    }
+}
+
+const saltRounds: number = 10;
+
+async function createInitialUser() {
+    try {
+        const userCount = await userCollection.countDocuments();
+        if (userCount > 0) {
+            console.log('Users already exist in the database');
+            return;
+        }
+
+        const email = process.env.ADMIN_EMAIL;
+        const password = process.env.ADMIN_PASSWORD;
+
+        if (!email || !password) {
+            throw new Error("ADMIN_EMAIL and ADMIN_PASSWORD must be set in environment");
+        }
+
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
+        const user: User = {
+            email: email,
+            password: hashedPassword,
+            role: "ADMIN"
+        };
+
+        await userCollection.insertOne(user);
+        console.log('Initial admin user created:', email);
+    } catch (error) {
+        console.error("Failed to create initial user:", error);
+    }
+}
+
+export async function login(email: string, password: string): Promise<User | null> {
+    if (!email || !password) {
+        throw new Error("Email and password required");
+    }
+    console.log(`Searching for user with email: ${email}`);
+    const user: User | null = await userCollection.findOne({ email: email });
+    console.log(`User found: ${user !== null}`);
+    if (user && user.password && await bcrypt.compare(password, user.password)) {
+        console.log(`Password match for user: ${email}`);
+        return user;
+    }
+    console.log(`User not found or incorrect password for: ${email}`);
+    return null;
 }
 
 
@@ -130,11 +180,23 @@ export async function updateItem(id: number, item: airsoft) {
 export async function connect() {
     try {
         await client.connect();
-        await loadairsoftFromApi(); 
-        await loadmanufacturerFromApi();  
-        console.log("Connected to database");
+        await createInitialUser(); // Ensure this runs to create the initial user
+        await loadairsoftFromApi();
+        await loadmanufacturerFromApi();
+        console.log(`Connected to database at ${MONGODB_URI}`);
         process.on("SIGINT", exit);
     } catch (error) {
-        console.error(error);
+        console.error('Database connection error:', error);
     }
+}
+
+async function exit() {
+    try {
+        await clearDatabase();
+        await client.close();
+        console.log("Disconnected from database");
+    } catch (error) {
+        console.error("Failed to disconnect from database:", error);
+    }
+    process.exit(0);
 }

@@ -111,15 +111,15 @@
     },
     {
         "id": 10,
-        "name": " Ak Edge 2.0",
-        "description": "De Specna Arms 2.0 is een geavanceerd airsoftgeweer met verbeterde prestaties en betrouwbaarheid. Het is ontworpen voor zowel beginners als ervaren spelers.",
-        "price": 320,
+        "name": "saiga 12",
+        "description": "De Tokyo Marui SAGA 12 is een geavanceerd airsoftgeweer met verbeterde prestaties en betrouwbaarheid. Het is ontworpen voor zowel beginners als ervaren spelers.",
+        "price": 520,
         "fullauto": true,
         "releasedate": "2022-10-28",
-        "imageURL": "specna-arms.png",
+        "imageURL": "tm-saga.png",
         "type": "AEG",
         "playtypes": ["milsim", "outdoor"],
-        "manufacturer": 109
+        "manufacturer": 102
       },
       {
         "id": 11,
