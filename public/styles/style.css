@@ -6,21 +6,21 @@ body {
     margin: 0;
     padding: 0;
     font-family: system-ui, sans-serif;
-    background-color: #ececec;
+    background-color: #f4f4f9;
 
     display: grid;
     grid-template-areas: 
         'aside main'
         'aside main'
         'footer footer';
-    grid-template-columns: 320px 1fr; 
-    grid-gap: 0; 
+    grid-template-columns: 320px 1fr; /* Defines the width of aside and the remaining space for main */
+    grid-gap: 0; /* Ensures no gap between grid items */
     min-height: 100vh;
 }
 
 aside {
     grid-area: aside;
-    background-color: #fefefe;
+    background-color: #f4f4f9;
     max-height: 100%;
 }
 
@@ -36,11 +36,11 @@ main {
 footer {
     grid-area: footer;
     text-align: center;
-    background-color: #fefefe;
+    background-color: #f4f4f9;
 }
 
 a {
-    color: #007acc;
+    color: blue;
 }
 
 aside section {
@@ -53,7 +53,7 @@ aside section {
 aside section a {
     padding: 15px;
     text-decoration: none;
-    color: #333;
+    color: black;
     font-size: 1.2rem;
 }
 
@@ -61,9 +61,6 @@ aside section button {
     padding: 15px;
     border: none;
     font-size: 1.2rem;
-    background-color: #fefefe;
-    color: #333;
-    cursor: pointer;
 }
 
 .search-bar {
@@ -75,7 +72,7 @@ aside section button {
 
 .search-bar button {
     border: none;
-    background-color: #fefefe;
+    background-color: #f4f4f9;
     padding: 0;
     cursor: pointer;
     vertical-align: middle;
@@ -85,7 +82,7 @@ aside section button {
 
 .search-bar button i {
     border: none;
-    background-color: #fefefe;
+    background-color: #f4f4f9;
     padding: 0;
     cursor: pointer;
     display: block;
@@ -114,10 +111,10 @@ aside section button {
     text-align: center;
     height: 10rem;
     margin: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid black;
     border-radius: 15px;
     width: 100%;
-    background-color: #ffffff;
+    background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -147,40 +144,40 @@ aside section button {
 }
 
 .item-icon i:hover {
-    color: #007acc;
+    color: black;
 }
 
 .electric {
-    color: #ff5733;
+    color: red;
     font-size: large;
 }
 
 .gas {
-    color: #28a745;
+    color: green;
     font-size: large;
 }
 
 .hpa {
-    color: #007bff;
+    color: blue;
     font-size: large;
 }
 
 .spring {
-    color: #6c757d;
+    color: gray;
     font-size: large;
 }
 
 .green {
-    color: #28a745;
+    color: green;
 }
 
 .red {
-    color: #ff5733;
+    color: red;
 }
 
 .fullauto {
-    background-color: #28a745;
-    border: 2px solid #28a745;
+    background-color: green;
+    border: 2px solid green;
     border-radius: 5px;
     width: 10%;
     height: 20%;
@@ -188,8 +185,8 @@ aside section button {
 }
 
 .nofullauto {
-    background-color: #ff5733;
-    border: 2px solid #ff5733;
+    background-color: red;
+    border: 2px solid red;
     border-radius: 5px;
     width: 10%;
     height: 20%;
@@ -209,14 +206,15 @@ aside section button {
     background-color: white;
     border: none;
     font-size: medium;
-    background-color: #fefefe;
+    background-color: #f4f4f9;
+    font-size: 1rem;
     font-size: 1rem;
 }
 
 .sort-select {
     border: none;
     justify-content: space-between;
-    background-color: #fefefe;
+    background-color: #f4f4f9;
     font-size: 1rem;
 }
 
@@ -236,13 +234,13 @@ aside section button {
 
 .a-brands {
     text-decoration: none;
-    color: #333;
+    color: black;
     width: 5%;
 }
 
 .a-brands:hover {
     text-decoration: none;
-    color: #007acc;
+    color: blue;
 }
 
 /* Product page */
@@ -252,7 +250,7 @@ aside section button {
     align-items: center;
     align-content: center;
     justify-content: center;
-    background-color: #ececec;
+    background-color: #f4f4f9;
 }
 
 .product-info {
@@ -263,9 +261,10 @@ aside section button {
     border-radius: 15px;
     padding: 10px;
     margin: 25px;
-    background-color: #ffffff;
+    background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 50%;
+
 }
 
 .info-top {
@@ -273,7 +272,7 @@ aside section button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff;
+    background-color: #fff;
 }
 
 .info-top img {
@@ -288,22 +287,22 @@ aside section button {
     align-items: center;
     justify-content: center;
     padding: 10px;
-    background-color: #ffffff;
-    border-top: 2px solid #ccc;
+    background-color: #fff;
+    border-top: 2px solid black;
     margin-top: 3rem;
 }
 
 .info-bottom form button {
     margin-top: 3%;
-    background-color: #333;
-    border: 2px solid #333;
+    background-color: black;
+    border: 2px solid black;
     color: white;
     font-size: medium;
     border-radius: 5px;
     transition: background-color 0.3s;
 }
 
-.info-bottom form article {
+.info-bottom form article{
     padding: 2px;
 }
 
@@ -318,19 +317,19 @@ aside section button {
     align-content: center;
     text-align: center;
     margin: 0 auto;
-    background-color: #ececec;
+    background-color: #f4f4f9;
 }
 
 .type {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid #ccc;
+    border: 1px solid black;
     border-radius: 15px;
     margin: 20px;
     padding: 10px;
     width: 22%;
-    background-color: #ffffff;
+    background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -342,7 +341,7 @@ aside section button {
 .type p {
     margin-top: 10px;
     text-align: center; 
-    border-top: 1px solid #ccc;
+    border-top: 1px solid black;
     padding: 15px;
 }
 
@@ -352,16 +351,16 @@ aside section button {
     flex-wrap: wrap;
     align-content: center;
     text-align: center;
-    background-color: #ececec;
+    background-color: #f4f4f9;
 }
 
 .brand-info article {
-    border: 2px solid #ccc;
+    border: 2px solid black;
     border-radius: 15px;
     margin: 1rem;
     padding: 20px;
     width: 22%;
-    background-color: #ffffff;
+    background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -370,6 +369,7 @@ footer {
     text-align: center;
     bottom: 0;
     padding: 20px;
+    background-color: #f4f4f9;
 }
 
 /* Login */
@@ -381,7 +381,7 @@ footer {
     width: 100%;
     max-width: 400px;
     padding: 20px;
-    background-color: #fefefe;
+    background-color: #f4f4f9;
 }
 
 .login-page body {
@@ -390,7 +390,7 @@ footer {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #ececec;
+    background-color: #f4f4f9;
 }
 
 .login-page main {
@@ -408,7 +408,7 @@ footer {
     width: 100%;
     max-width: 400px;
     padding: 20px;
-    background-color: #fefefe;
+    background-color: #f4f4f9;
 }
 
 .login-page .login h1 {
@@ -420,7 +420,7 @@ footer {
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: #ffffff;
+    background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -475,7 +475,7 @@ footer {
     aside {
         width: 100%;
         border-left: none;
-        border-top: 1px solid #ccc;
+        border-top: 1px solid black;
     }
 
     .info-items {
