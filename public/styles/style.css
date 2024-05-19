@@ -57,10 +57,11 @@ aside section a {
     font-size: 1.2rem;
 }
 
-aside section button {
+aside section form button {
     padding: 15px;
     border: none;
     font-size: 1.2rem;
+    background-color: #f4f4f9;
 }
 
 .search-bar {
@@ -96,21 +97,54 @@ aside section button {
 
 .hamburger-items {
     width: 95%;
+    height: 540px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-animation: slide-in-bck-center 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: slide-in-bck-center 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    padding-right: 20px; /* Add padding to make space for the scrollbar */
+}
 
-  height: 660px;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-animation:slide-in-bck-center .7s cubic-bezier(.25,.46,.45,.94) both;animation:slide-in-bck-center .7s cubic-bezier(.25,.46,.45,.94) both">
+/* Custom scrollbar styles */
+.hamburger-items::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+
+.hamburger-items::-webkit-scrollbar-track {
+    background: #f4f4f4; /* Color of the track (background) */
+    border-radius: 10px; /* Rounding the corners of the track */
+}
+
+.hamburger-items::-webkit-scrollbar-thumb {
+    background-color: #333; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounding the corners of the thumb */
+    border: 3px solid #f4f4f4; /* Padding around the thumb */
+}
+
+.hamburger-items::-webkit-scrollbar-thumb:hover {
+    background-color: #333; /* Color when hovered */
+}
+
+/* Hide the scrollbar buttons */
+.hamburger-items::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* For Firefox */
+.hamburger-items {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: #333 #f4f4f4; /* Thumb and track colors */
 }
 
 .info-items {
     display: flex;
     flex-direction: row;
-    align-content: center;
+    align-items: center;
     justify-content: space-between;
     text-align: center;
-    height: 10rem;
+    height: auto;
     margin: 1rem;
+    padding: 1rem;
     border: 1px solid black;
     border-radius: 15px;
     width: 100%;
@@ -120,27 +154,37 @@ aside section button {
 
 .info-items img {
     width: 15%;
+    max-width: 150px;
 }
 
 .info-items p,
-.info-items ul {
+.info-items ul,
+.info-items a {
     text-align: center;
     justify-content: center;
     align-content: center;
     margin-left: 2rem;
-    width: 20%;
+    flex: 1; /* Ensure all elements take equal width */
+}
+
+.info-items ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .info-items li {
     text-align: left;
-    justify-content: left;
-    align-content: left;
+    margin-left: 1rem;
+}
+
+.item-icon {
+    flex: 1;
 }
 
 .item-icon i {
-    height: auto; 
     margin-left: 2rem;
-    width: 5%;
+    font-size: 1.5rem;
 }
 
 .item-icon i:hover {
@@ -179,19 +223,24 @@ aside section button {
     background-color: green;
     border: 2px solid green;
     border-radius: 5px;
-    width: 10%;
-    height: 20%;
+    width: auto;
+    padding: 0.5rem;
     margin: auto 1%;
+    color: white;
+    text-align: center;
 }
 
 .nofullauto {
     background-color: red;
     border: 2px solid red;
     border-radius: 5px;
-    width: 10%;
-    height: 20%;
+    width: auto;
+    padding: 0.5rem;
     margin: auto 1%;
+    color: white;
+    text-align: center;
 }
+
 
 .sort {
     display: flex;
@@ -326,15 +375,15 @@ aside section button {
     align-items: center;
     border: 1px solid black;
     border-radius: 15px;
-    margin: 20px;
+    margin: 1rem;
     padding: 10px;
-    width: 22%;
+    width: 45%;
     background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .type img {
-    width: 100%;
+    width: 60%;
     height: 200px;
 }
 
@@ -494,7 +543,7 @@ footer {
     }
 
     .fullauto, .nofullauto {
-        width: auto;
+        width: 50px;
     }
 
     .product-info, .type, .brand-info article {
