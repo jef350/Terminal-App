@@ -99,6 +99,11 @@ aside section button {
 
 .hamburger-items {
     width: 95%;
+
+  height: 660px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-animation:slide-in-bck-center .7s cubic-bezier(.25,.46,.45,.94) both;animation:slide-in-bck-center .7s cubic-bezier(.25,.46,.45,.94) both">
 }
 
 .info-items {
