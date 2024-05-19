@@ -1,7 +1,6 @@
 import express from "express";
-import { connect, getairsoftdata, getmanufacturerdata, getAirsoftById, updateItem, sortairsoftdata, login } from "../database";
+import { getairsoftdata, getmanufacturerdata, sortairsoftdata } from "../database";
 import { secureMiddleware } from "../secureMiddleware";
-
 
 export function homeRouter() {
     const router = express.Router();
@@ -10,13 +9,13 @@ export function homeRouter() {
         try {
             const data = await getairsoftdata();
             const arr = await getmanufacturerdata();
-    
-            let q: string = req.query.q ? req.query.q.toString() : '';
+
+            const q: string = req.query.q ? req.query.q.toString() : '';
             const sortField = typeof req.query.sortField === "string" ? req.query.sortField : "name";
             const sortDirection = typeof req.query.sortDirection === "string" ? req.query.sortDirection : "asc";
-    
-            let sortedItems = await sortairsoftdata(req, data, arr);
-    
+
+            const sortedItems = await sortairsoftdata(req, data, arr);
+
             res.render("home", {
                 data: sortedItems,
                 arr: arr,

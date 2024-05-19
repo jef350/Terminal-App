@@ -1,19 +1,19 @@
 import express from 'express';
 import { login } from '../database';
 import { User } from '../types';
+import { checkNotAuthenticated } from '../secureMiddleware'; // Import the middleware
 
 export const loginRouter = () => {
     const router = express.Router();
 
-    router.get('/login', (req, res) => {
+    router.get('/login', checkNotAuthenticated, (req, res) => {
         res.render('login', { error: null });
     });
 
-    router.post('/login', async (req, res) => {
+    router.post('/login', checkNotAuthenticated, async (req, res) => {
         const email: string = req.body.email;
         const password: string = req.body.password;
 
-        // Debugging
         console.log('Received login request with email:', email);
         console.log('Received login request with password:', password);
 

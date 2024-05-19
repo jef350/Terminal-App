@@ -1,27 +1,30 @@
 * {
     box-sizing: border-box;
+    cursor: url('cursor.cur'), auto;
 }
 
 body {
     margin: 0;
     padding: 0;
     font-family: system-ui, sans-serif;
-    background-color: #f4f4f9;
+    background-color: #2b2b3a;
 
     display: grid;
     grid-template-areas: 
         'aside main'
         'aside main'
         'footer footer';
-    grid-template-columns: 320px 1fr; /* Defines the width of aside and the remaining space for main */
-    grid-gap: 0; /* Ensures no gap between grid items */
+    grid-template-columns: 320px 1fr;
+    grid-gap: 0;
     min-height: 100vh;
 }
 
 aside {
     grid-area: aside;
-    background-color: #f4f4f9;
+    background-color: #2b2b3a;
     max-height: 100%;
+    color: #ffffff;
+    width: 300px;
 }
 
 main {
@@ -31,35 +34,40 @@ main {
     justify-content: center;
     align-items: center;
     width: 100%;
+    color: #ffffff;
 }
 
 footer {
     grid-area: footer;
     text-align: center;
-    background-color: #f4f4f9;
+    color: #ffffff;
 }
 
-.landingspage{
+.landingspage {
     display: flex;
     flex-direction: row;
 }
 
-.landingspage a{
+.landingspage a {
     padding-left: 10px;
     padding-right: 10px;
     text-decoration: none;
-    color: black;
+    color: #cccccc;
 }
 
-.landingspage a:hover{
-    padding-left: 10px;
-    padding-right: 10px;
+.landingspage a:hover {
     text-decoration: underline;
-    color: blue;
+    color: #ff6600;
 }
 
 a {
-    color: blue;
+    color: #ff6600;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff6600;
+    text-decoration: underline;
 }
 
 aside section {
@@ -72,7 +80,7 @@ aside section {
 aside section a {
     padding: 15px;
     text-decoration: none;
-    color: black;
+    color: #ffffff;
     font-size: 1.2rem;
 }
 
@@ -80,7 +88,8 @@ aside section form button {
     padding: 15px;
     border: none;
     font-size: 1.2rem;
-    background-color: #f4f4f9;
+    background-color: #2b2b3a;
+    color: #ffffff;
 }
 
 .search-bar {
@@ -92,17 +101,18 @@ aside section form button {
 
 .search-bar button {
     border: none;
-    background-color: #f4f4f9;
+    background-color: #2b2b3a;
     padding: 0;
     cursor: pointer;
     vertical-align: middle;
     font-size: 1rem;
     margin-right: 10px;
+    color: #ffffff;
 }
 
 .search-bar button i {
     border: none;
-    background-color: #f4f4f9;
+    background-color: #2b2b3a;
     padding: 0;
     cursor: pointer;
     display: block;
@@ -112,47 +122,42 @@ aside section form button {
 .search-bar input {
     border-radius: 5px;
     font-size: 1rem;
+    background-color: #1e1e2d;
+    color: #ffffff;
+    border: 1px solid #444444;
 }
 
 .hamburger-items {
     width: 95%;
-    height: 540px;
+    height: 545px;
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-animation: slide-in-bck-center 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     animation: slide-in-bck-center 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-    padding-right: 20px; /* Add padding to make space for the scrollbar */
+    padding-right: 20px;
 }
 
-/* Custom scrollbar styles */
 .hamburger-items::-webkit-scrollbar {
-    width: 12px; /* Width of the scrollbar */
+    width: 12px;
 }
 
 .hamburger-items::-webkit-scrollbar-track {
-    background: #f4f4f4; /* Color of the track (background) */
-    border-radius: 10px; /* Rounding the corners of the track */
+    background: #2b2b3a;
+    border-radius: 10px;
 }
 
 .hamburger-items::-webkit-scrollbar-thumb {
-    background-color: #333; /* Color of the scrollbar thumb */
-    border-radius: 10px; /* Rounding the corners of the thumb */
-    border: 3px solid #f4f4f4; /* Padding around the thumb */
+    background-color: #ff6600; 
+    border-radius: 10px;
+    border: 3px solid #2b2b3a;
 }
 
 .hamburger-items::-webkit-scrollbar-thumb:hover {
-    background-color: #333; /* Color when hovered */
+    background-color: #ff6600; 
 }
 
-/* Hide the scrollbar buttons */
 .hamburger-items::-webkit-scrollbar-button {
     display: none;
-}
-
-/* For Firefox */
-.hamburger-items {
-    scrollbar-width: thin; /* Thin scrollbar */
-    scrollbar-color: #333 #f4f4f4; /* Thumb and track colors */
 }
 
 .info-items {
@@ -164,11 +169,11 @@ aside section form button {
     height: auto;
     margin: 1rem;
     padding: 1rem;
-    border: 1px solid black;
+    border: 1px solid #444444;
     border-radius: 15px;
     width: 100%;
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #2b2b3a;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .info-items img {
@@ -183,7 +188,7 @@ aside section form button {
     justify-content: center;
     align-content: center;
     margin-left: 2rem;
-    flex: 1; /* Ensure all elements take equal width */
+    flex: 1;
 }
 
 .info-items ul {
@@ -207,7 +212,7 @@ aside section form button {
 }
 
 .item-icon i:hover {
-    color: black;
+    color: #ffffff;
 }
 
 .electric {
@@ -260,7 +265,6 @@ aside section form button {
     text-align: center;
 }
 
-
 .sort {
     display: flex;
     flex-direction: row;
@@ -268,21 +272,23 @@ aside section form button {
     margin-top: 1rem;
     width: 95%;
     font-size: 1rem;
+    top: 0;
 }
 
 .sort form button {
     background-color: white;
     border: none;
     font-size: medium;
-    background-color: #f4f4f9;
-    font-size: 1rem;
+    background-color: #2b2b3a;
+    color: #ffffff;
     font-size: 1rem;
 }
 
 .sort-select {
     border: none;
     justify-content: space-between;
-    background-color: #f4f4f9;
+    background-color: #2b2b3a;
+    color: #ffffff;
     font-size: 1rem;
 }
 
@@ -302,23 +308,23 @@ aside section form button {
 
 .a-brands {
     text-decoration: none;
-    color: black;
+    color: #cccccc;
     width: 5%;
 }
 
 .a-brands:hover {
     text-decoration: none;
-    color: blue;
+    color: #ff6600;
 }
 
-/* Product page */
 .product-main {
     display: flex;
     flex-direction: column;
     align-items: center;
     align-content: center;
     justify-content: center;
-    background-color: #f4f4f9;
+    background-color: #2b2b3a;
+    color: #ffffff;
 }
 
 .product-info {
@@ -329,10 +335,10 @@ aside section form button {
     border-radius: 15px;
     padding: 10px;
     margin: 25px;
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #2b2b3a;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     width: 50%;
-
+    color: #ffffff;
 }
 
 .info-top {
@@ -340,7 +346,7 @@ aside section form button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
+    background-color: #2b2b3a;
 }
 
 .info-top img {
@@ -355,50 +361,50 @@ aside section form button {
     align-items: center;
     justify-content: center;
     padding: 10px;
-    background-color: #fff;
-    border-top: 2px solid black;
+    background-color: #2b2b3a;
+    border-top: 2px solid #444444;
     margin-top: 3rem;
 }
 
 .info-bottom form button {
     margin-top: 3%;
-    background-color: black;
-    border: 2px solid black;
+    background-color: #444444;
+    border: 2px solid #444444;
     color: white;
     font-size: medium;
     border-radius: 5px;
     transition: background-color 0.3s;
 }
 
-.info-bottom form article{
+.info-bottom form article {
     padding: 2px;
 }
 
 .info-bottom form button:hover {
-    background-color: #555;
+    background-color: #666666;
 }
 
-/* Types */
 .types {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
     text-align: center;
     margin: 0 auto;
-    background-color: #f4f4f9;
+    background-color: #2b2b3a;
 }
 
 .type {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid #444444;
     border-radius: 15px;
     margin: 1rem;
     padding: 10px;
     width: 45%;
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #2b2b3a;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
 }
 
 .type img {
@@ -409,38 +415,36 @@ aside section form button {
 .type p {
     margin-top: 10px;
     text-align: center; 
-    border-top: 1px solid black;
+    border-top: 1px solid #444444;
     padding: 15px;
 }
 
-/* Brands */
 .brand-info {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
     text-align: center;
-    background-color: #f4f4f9;
+    background-color: #2b2b3a;
 }
 
 .brand-info article {
-    border: 2px solid black;
+    border: 2px solid #444444;
     border-radius: 15px;
     margin: 1rem;
     padding: 20px;
     width: 22%;
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #2b2b3a;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
 }
 
-/* Footer */
 footer {
     text-align: center;
     bottom: 0;
     padding: 20px;
-    background-color: #f4f4f9;
+    color: #ffffff;
 }
 
-/* Login */
 .login {
     display: flex;
     flex-direction: column;
@@ -448,8 +452,8 @@ footer {
     justify-content: center;
     width: 100%;
     max-width: 400px;
-    padding: 20px;
-    background-color: #f4f4f9;
+    background-color: #1e1e2d;
+    color: #ffffff;
 }
 
 .login-page body {
@@ -458,7 +462,7 @@ footer {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f4f4f9;
+    background-color: #1e1e2d;
 }
 
 .login-page main {
@@ -476,7 +480,7 @@ footer {
     width: 100%;
     max-width: 400px;
     padding: 20px;
-    background-color: #f4f4f9;
+    color: #ffffff;
 }
 
 .login-page .login h1 {
@@ -488,10 +492,11 @@ footer {
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: #fff;
+    background-color: #1e1e2d;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
 }
 
 .login-page .login-form article {
@@ -507,19 +512,21 @@ footer {
 .login-page .login-form input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #444444;
     border-radius: 5px;
     font-size: 1rem;
+    background-color: #2b2b3a;
+    color: #ffffff;
 }
 
 .login-page .login-form input:focus {
-    border-color: #333;
+    border-color: #ff6600;
 }
 
 .login-page .login-form button {
     padding: 10px 15px;
-    background-color: #333;
-    color: #fff;
+    background-color: #444444;
+    color: #ffffff;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
@@ -528,40 +535,320 @@ footer {
 }
 
 .login-page .login-form button:hover {
-    background-color: #555;
+    background-color: #666666;
 }
 
 /* Media Queries voor Responsiviteit */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     body {
         grid-template-areas: 
-        'main'
-        'aside'
-        'footer';
+        'aside main'
+        'footer footer';
+        grid-template-columns: 1fr;
     }
 
     aside {
-        width: 100%;
+        width: 150px;
         border-left: none;
-        border-top: 1px solid black;
+        border-top: 1px solid #444444;
     }
 
     .info-items {
+        display: flex;
         flex-direction: column;
         height: auto;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+        justify-content: center;
+        width: 80%;
+        margin: auto;
+        padding: 1rem;
+        border: 1px solid #444444;
+        border-radius: 15px;
+        background-color: #2b2b3a;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .info-items img {
+        width: 50%;
+        max-width: 150px;
+        margin-bottom: 1rem;
+    }
+    
+    .item-icon {
+        padding: 0;
+        margin: 0;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .info-items p,
+    .info-items ul,
+    .info-items a {
+        width: 20%;
+        padding: 15px;
+        margin: 0;
+    }
+    
+    .info-items ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .info-items li {
+        text-align: left;
+        margin-left: 1rem;
+    }
+    .fullauto, .nofullauto {
+        width: 50px;
+    }
+
+    .product-main{
+        width: 724px;
+    }
+
+    .product-info, .type, .brand-info article {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .search-bar {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .search-bar input {
+        width: 50%;
+        font-size: 1.2rem;
+    }
+
+    .sort form{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .sort, .hamburger-items{
+        width: 724px;
+    }
+}
+
+@media (max-width: 720px) {
+     
+    aside{
+        width: 150px;
+    }
+
+    footer{
+        width: 720px;
     }
 
     .info-items img {
+        width: 100%;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        align-items: center;
         width: 50%;
     }
 
-    .info-items p,
-    .info-items ul {
-        width: 100%;
-        margin-left: 0;
+    .search-bar button{
+        width: 200px;
+        font-size: 1.2rem;
     }
 
-    .fullauto, .nofullauto {
+    .info-items {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+        justify-content: center;
+        width: 100%;
+        margin: auto;
+        padding: 1rem;
+        border-radius: 15px;
+    }
+    
+    .info-items img {
+        width: 50%;
+        max-width: 150px;
+        margin-bottom: 1rem;
+    }
+    
+    .item-icon {
+        padding: 0;
+        margin: 0;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .info-items p,
+    .info-items ul,
+    .info-items ul li,
+    .info-items a {
+        width: 100%;
+        padding: 15px;
+        margin: 0;
+    }
+    
+    .info-items ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        width: 20%;
+    }
+    
+    .info-items li {
+        text-align: left;
+        margin-left: 1rem;
+    }
+    
+    .info-items a {
+        text-decoration: none;
+        color: #ffffff;
+    }
+
+    .fullauto, .nofullauto{
+        width: 50px;
+    }
+
+    .product-info, .type, .brand-info article {
+        width: 100%;
+        margin: 30px;
+    }
+
+    .sort {
+        flex-direction: row;
+        width: 70%;
+        margin-right: auto;
+    }
+
+    .sort input {
+        width: 50%;
+    }
+
+    .sort form button {
+        width: 10%;
+    }
+
+    .landingspage {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .landingspage a {
+        margin: 5px 0;
+    }
+
+    .sort, .hamburger-items{
+        width: 570px;
+    }
+
+    .product-main , .product-info{
+        width: 570px;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .product-info{
+        width: 550px;
+    }
+}
+
+@media (max-width: 320px) {
+
+    body {
+        grid-template-areas: 
+        'aside'
+        'main'
+        'footer';
+        grid-template-columns: 1fr;
+    }
+
+    aside{
+        width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    footer{
+        width: 320px;
+    }
+
+    .info-items img {
+        width: 100%;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+    }
+
+    .search-bar button{
+        width: 200px;
+        font-size: 1.2rem;
+    }
+
+    .info-items {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+        justify-content: center;
+        width: 300px;
+        margin: 5px;
+        padding: 1rem;
+        border-radius: 15px;
+    }
+    
+    .info-items img {
+        width: 50%;
+        max-width: 150px;
+        margin-bottom: 1rem;
+    }
+    
+    .item-icon {
+        padding: 0;
+        margin: 0;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .info-items p,
+    .info-items ul,
+    .info-items ul li,
+    .info-items a {
+        width: 100%;
+        padding: 15px;
+        margin: 0;
+    }
+    
+    .info-items ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        width: 20%;
+    }
+    
+    .info-items li {
+        text-align: left;
+        margin-left: 1rem;
+    }
+    
+    .info-items a {
+        text-decoration: none;
+        color: #ffffff;
+    }
+
+    .fullauto, .nofullauto{
         width: 50px;
     }
 
@@ -569,49 +856,40 @@ footer {
         width: 100%;
     }
 
-    .search-bar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .search-bar button, .search-bar input {
-        width: 100%;
-        font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .info-items img {
-        width: 100%;
-    }
-
-    .search-bar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .search-bar button, .search-bar input {
-        width: 100%;
-        font-size: 1.5rem;
-    }
-
-    .info-items p,
-    .info-items ul {
-        width: 100%;
-        margin-left: 0;
-    }
-
-    .product-info, .type, .brand-info article {
-        width: 100%;
-        margin: 10px 0;
-    }
-
     .sort {
         flex-direction: column;
+        width: 300px;
+        padding: 10px;
+    }
+
+    .sort input {
         width: 100%;
     }
 
     .sort form button {
-        width: 100%;
+        width: 10%;
+    }
+
+    .landingspage {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .landingspage a {
+        margin: 5px;
+    }
+
+    .sort, .hamburger-items{
+        width: 320px;
+    }
+
+    .product-main , .product-info{
+        width: 310px;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .product-info{
+        width: 300px;
     }
 }

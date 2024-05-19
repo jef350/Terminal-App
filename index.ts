@@ -3,9 +3,9 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import path from 'path';
 import session from './session';
-import { connect, getairsoftdata, getmanufacturerdata, getAirsoftById, updateItem, login } from './database';
+import { connect, getairsoftdata, getmanufacturerdata, updateItem, login } from './database';
 import { airsoft, User } from './types';
-import { secureMiddleware } from './secureMiddleware';
+import { secureMiddleware, checkNotAuthenticated } from './secureMiddleware'; // Import secureMiddleware and checkNotAuthenticated
 import { loginRouter } from './routes/loginRouter';
 import { homeRouter } from './routes/homeRouter';
 import { registerRouter } from './routes/registerRouter'; // Import registerRouter function
@@ -23,6 +23,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(session); // Ensure session middleware is set up before routes that need session data
 app.use(flashMiddleware);
 
+// Middleware to attach user to locals for views
+app.use((req, res, next) => {
+  res.locals.user = req.session.user;
+  next();
+});
+
 // View engine setup
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -30,42 +36,13 @@ app.set('views', path.join(__dirname, 'views'));
 // Use routers
 app.use(loginRouter());
 app.use(homeRouter());
-app.use(registerRouter()); // Use registerRouter function
+app.use(registerRouter());
 
 // Port setup
 app.set('port', process.env.PORT || 3000);
 
-// Routes
-app.get('/login', (req, res) => {
-  res.render('login');
-});
-
-app.post('/login', async (req, res) => {
-  const email: string = req.body.email;
-  const password: string = req.body.password;
-  try {
-    const user: User | null = await login(email, password);
-    if (user) {
-      delete user.password;
-      req.session.user = user;
-      console.log('User session set:', req.session.user); // Logging for diagnosis
-      res.redirect('/');
-    } else {
-      res.redirect('/login');
-    }
-  } catch (e: any) {
-    console.error('Login error:', e); // Log the error for diagnostics
-    res.redirect('/login');
-  }
-});
-
-app.post('/logout', (req, res) => {
-  req.session.destroy(() => {
-    res.redirect('/login');
-  });
-});
-
-app.get('/product/:id', async (req, res) => {
+// Secure routes
+app.get('/product/:id', secureMiddleware, async (req, res) => {
   try {
     const data = await getairsoftdata();
     const arr = await getmanufacturerdata();
@@ -109,7 +86,7 @@ app.post('/product/:id/update', secureMiddleware, async (req, res) => {
   }
 });
 
-app.get('/brands', async (req, res) => {
+app.get('/brands', secureMiddleware, async (req, res) => {
   try {
     const arr = await getmanufacturerdata();
     res.render('brands', { arr: arr });
@@ -118,8 +95,19 @@ app.get('/brands', async (req, res) => {
   }
 });
 
-app.get('/types', (req, res) => {
+app.get('/types', secureMiddleware, (req, res) => {
   res.render('types');
+});
+
+// Logout route
+app.post('/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      return res.redirect('/');
+    }
+    res.clearCookie('connect.sid'); // Ensure the cookie is deleted
+    res.redirect('/login');
+  });
 });
 
 app.listen(process.env.PORT, async () => {
