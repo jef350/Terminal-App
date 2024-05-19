@@ -20,7 +20,9 @@
                         <li><a href="/brands"><%= brand.name %></a></li>
                     <% } %>
                 <% } %>
+                <% if (user && user.role === 'ADMIN') { %>
                 <li><a href="/product/<%= product.id %>/update">Update</a></li>
+                <% } %>
             </ul>
         </article>
         </section>

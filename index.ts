@@ -73,7 +73,7 @@ app.get('/product/:id', async (req, res) => {
     const product = data.find((item) => item.id === id);
 
     if (product) {
-      res.render('product', { product: product, arr: arr });
+      res.render('product', { product: product, arr: arr, user: req.session.user });
     } else {
       res.status(404).render('404');
     }
