@@ -131,33 +131,39 @@ export async function clearDatabase() {
 const saltRounds: number = 10;
 
 async function createInitialUser() {
-    try {
-        const userCount = await userCollection.countDocuments();
-        if (userCount > 0) {
-            console.log('Users already exist in the database');
-            return;
-        }
-
-        const email = process.env.ADMIN_EMAIL;
-        const password = process.env.ADMIN_PASSWORD;
-
-        if (!email || !password) {
-            throw new Error("ADMIN_EMAIL and ADMIN_PASSWORD must be set in environment");
-        }
-
-        const hashedPassword = await bcrypt.hash(password, saltRounds);
-        const user: User = {
-            email: email,
-            password: hashedPassword,
-            role: "ADMIN"
-        };
-
-        await userCollection.insertOne(user);
-        console.log('Initial admin user created:', email);
-    } catch (error) {
-        console.error("Failed to create initial user:", error);
+    if ((await userCollection.countDocuments()) > 0) {
+        console.log('Users already exist in the database');
+        return;
     }
+
+    const adminEmail = process.env.ADMIN_EMAIL;
+    const adminPassword = process.env.ADMIN_PASSWORD;
+    const userEmail = process.env.USER_EMAIL;
+    const userPassword = process.env.USER_PASSWORD;
+
+    if (!adminEmail || !adminPassword || !userEmail || !userPassword) {
+        throw new Error("ADMIN_EMAIL, ADMIN_PASSWORD, USER_EMAIL and USER_PASSWORD must be set in environment");
+    }
+
+    const hashedAdminPassword = await bcrypt.hash(adminPassword, saltRounds);
+    const hashedUserPassword = await bcrypt.hash(userPassword, saltRounds);
+
+    const admin: User = {
+        email: adminEmail,
+        password: hashedAdminPassword,
+        role: "ADMIN"
+    };
+
+    const user: User = {
+        email: userEmail,
+        password: hashedUserPassword,
+        role: "USER"
+    };
+
+    await userCollection.insertMany([admin, user]);
+    console.log('Initial admin and user created:', adminEmail, userEmail);
 }
+
 
 export async function login(email: string, password: string): Promise<User | null> {
     if (!email || !password) {
@@ -174,13 +180,10 @@ export async function login(email: string, password: string): Promise<User | nul
     return null;
 }
 
-
-
-
 export async function connect() {
     try {
         await client.connect();
-        await createInitialUser(); // Ensure this runs to create the initial user
+        await createInitialUser(); // Ensure this runs to create the initial users
         await loadairsoftFromApi();
         await loadmanufacturerFromApi();
         console.log(`Connected to database at ${MONGODB_URI}`);
