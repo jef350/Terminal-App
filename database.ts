@@ -7,7 +7,7 @@ import path from "path";
 
 dotenv.config();
 
-const uri = process.env.MONGO_URI || "mongodb+srv://8088:8088@cluster0.prdpq6c.mongodb.net/myDatabase?retryWrites=true&w=majority&appName=Cluster0";
+const uri = process.env.MONGO_URI || "mongodb://localhost:27017";
 export const MONGODB_URI = uri;
 
 export const client = new MongoClient(MONGODB_URI);
