@@ -131,7 +131,6 @@ export async function clearDatabase() {
 const saltRounds: number = 10;
 
 async function createInitialUser() {
-    // Check if admin and default user accounts exist
     const adminEmail = process.env.ADMIN_EMAIL;
     const adminPassword = process.env.ADMIN_PASSWORD;
     const userEmail = process.env.USER_EMAIL;
@@ -171,7 +170,6 @@ async function createInitialUser() {
     }
 }
 
-
 export async function login(email: string, password: string): Promise<User | null> {
     if (!email || !password) {
         throw new Error("Email and password required");
@@ -190,7 +188,7 @@ export async function login(email: string, password: string): Promise<User | nul
 export async function connect() {
     try {
         await client.connect();
-        await createInitialUser(); // Ensure this runs to create the initial users
+        await createInitialUser();
         await loadairsoftFromApi();
         await loadmanufacturerFromApi();
         console.log(`Connected to database at ${MONGODB_URI}`);

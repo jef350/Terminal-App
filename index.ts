@@ -5,43 +5,37 @@ import path from 'path';
 import session from './session';
 import { connect, getairsoftdata, getmanufacturerdata, updateItem, login } from './database';
 import { airsoft, User } from './types';
-import { secureMiddleware, checkNotAuthenticated } from './secureMiddleware'; // Import secureMiddleware and checkNotAuthenticated
+import { secureMiddleware, checkNotAuthenticated } from './secureMiddleware';
 import { loginRouter } from './routes/loginRouter';
 import { homeRouter } from './routes/homeRouter';
-import { registerRouter } from './routes/registerRouter'; // Import registerRouter function
+import { registerRouter } from './routes/registerRouter';
 import { flashMiddleware } from "./flashMiddleware";
 
 dotenv.config();
 
 const app = express();
 
-// Middleware setup
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(session); // Ensure session middleware is set up before routes that need session data
+app.use(session);
 app.use(flashMiddleware);
 
-// Middleware to attach user to locals for views
 app.use((req, res, next) => {
   res.locals.user = req.session.user;
   next();
 });
 
-// View engine setup
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Use routers
 app.use(loginRouter());
 app.use(homeRouter());
 app.use(registerRouter());
 
-// Port setup
 app.set('port', process.env.PORT || 3000);
 
-// Secure routes
 app.get('/product/:id', secureMiddleware, async (req, res) => {
   try {
     const data = await getairsoftdata();
@@ -99,13 +93,12 @@ app.get('/types', secureMiddleware, (req, res) => {
   res.render('types');
 });
 
-// Logout route
 app.post('/logout', (req, res) => {
   req.session.destroy(err => {
     if (err) {
       return res.redirect('/');
     }
-    res.clearCookie('connect.sid'); // Ensure the cookie is deleted
+    res.clearCookie('connect.sid');
     res.redirect('/login');
   });
 });
@@ -120,7 +113,6 @@ app.listen(process.env.PORT, async () => {
   }
 });
 
-// 404 handler
 app.use((req, res) => {
   res.status(404).render('404');
 });
