@@ -1,4 +1,4 @@
-import { MongoClient } from "mongodb";
+import { Collection, MongoClient } from "mongodb";
 import dotenv from "dotenv";
 import bcrypt from "bcrypt";
 import { airsoft, manufacturer, User } from "./types";
@@ -8,12 +8,13 @@ import path from "path";
 dotenv.config();
 
 const uri = process.env.MONGO_URI || "mongodb://localhost:27017";
-export const client = new MongoClient(uri);
+export const MONGODB_URI = uri;
 
-export const airsoftcollection = client.db("exercises").collection<airsoft>("airsoft");
-export const manufacturercollection = client.db("exercises").collection<manufacturer>("manufacturer");
+export const client = new MongoClient(MONGODB_URI);
+
+export const airsoftcollection: Collection<airsoft> = client.db("exercises").collection<airsoft>("airsoft");
+export const manufacturercollection: Collection<manufacturer> = client.db("exercises").collection<manufacturer>("manufacturer");
 export const userCollection = client.db("login-express").collection<User>("users");
-
 
 export async function getairsoftdata() {
     return await airsoftcollection.find({}).toArray();
@@ -189,17 +190,13 @@ export async function login(email: string, password: string): Promise<User | nul
 export async function connect() {
     try {
         await client.connect();
-        console.log("Connected to MongoDB");
-
-        // Load initial data if needed
         await createInitialUser(); // Ensure this runs to create the initial users
         await loadairsoftFromApi();
         await loadmanufacturerFromApi();
-        
+        console.log(`Connected to database at ${MONGODB_URI}`);
         process.on("SIGINT", exit);
     } catch (error) {
-        console.error("Database connection error:", error);
-        process.exit(1);
+        console.error('Database connection error:', error);
     }
 }
 
