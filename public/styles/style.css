@@ -438,6 +438,10 @@ aside section form button {
     color: #ffffff;
 }
 
+.brand-info article img {
+    margin: 0;
+}
+
 footer {
     text-align: center;
     bottom: 0;
@@ -561,7 +565,7 @@ footer {
         align-content: center;
         text-align: center;
         justify-content: center;
-        width: 80%;
+        width: 100%;
         margin: auto;
         padding: 1rem;
         border: 1px solid #444444;
@@ -582,6 +586,13 @@ footer {
         font-size: 1.5rem;
         margin-bottom: 1rem;
     }
+
+    .item-icon i{
+        padding: 0;
+        margin: 0;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
     
     .info-items p,
     .info-items ul,
@@ -593,7 +604,6 @@ footer {
     
     .info-items ul {
         list-style-type: none;
-        padding: 0;
         margin: 0;
     }
     
@@ -780,7 +790,7 @@ footer {
     }
 
     footer{
-        width: 100%;
+        width: 80%;
         display: flex;
         text-align: center;
         align-items: center;
@@ -859,8 +869,11 @@ footer {
         width: 50px;
     }
 
+
+
     .product-info, .type, .brand-info article {
-        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
     }
 
     .sort {
@@ -894,9 +907,9 @@ footer {
     }
 
     .product-main , .product-info{
-        width: 310px;
-        margin: 0px;
+        width: 80%;
         padding: 0px;
+        margin: 0%;
     }
 
     .product-info{
