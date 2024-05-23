@@ -606,6 +606,8 @@ footer {
         width: 20%;
         padding: 15px;
         margin: 0;
+        text-align: center;
+        align-content: center;
     }
     
     .info-items ul {
