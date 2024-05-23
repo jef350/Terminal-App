@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    cursor: url('cursor.cur'), auto;
+    cursor: url('/assets/images/cursor.cur'), auto;
 }
 
 body {
@@ -168,7 +168,6 @@ aside section form button {
     text-align: center;
     height: auto;
     margin: 1rem;
-    padding: 1rem;
     border: 1px solid #444444;
     border-radius: 15px;
     width: 100%;
@@ -438,6 +437,10 @@ aside section form button {
     color: #ffffff;
 }
 
+.brand-info article img {
+    margin: 0;
+}
+
 footer {
     text-align: center;
     bottom: 0;
@@ -539,6 +542,13 @@ footer {
 }
 
 /* Media Queries voor Responsiviteit */
+
+@media (max-width: 1237px) {
+    .fullauto{
+        margin: 0px;
+    }
+}
+
 @media (max-width: 1024px) {
     body {
         grid-template-areas: 
@@ -561,7 +571,7 @@ footer {
         align-content: center;
         text-align: center;
         justify-content: center;
-        width: 80%;
+        width: 100%;
         margin: auto;
         padding: 1rem;
         border: 1px solid #444444;
@@ -582,6 +592,13 @@ footer {
         font-size: 1.5rem;
         margin-bottom: 1rem;
     }
+
+    .item-icon i{
+        padding: 0;
+        margin: 0;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
     
     .info-items p,
     .info-items ul,
@@ -593,7 +610,6 @@ footer {
     
     .info-items ul {
         list-style-type: none;
-        padding: 0;
         margin: 0;
     }
     
@@ -759,6 +775,154 @@ footer {
         width: 550px;
     }
 }
+
+@media (max-width: 500px) {
+
+    body {
+        grid-template-areas: 
+        'aside'
+        'main'
+        'footer';
+        grid-template-columns: 1fr;
+    }
+
+    aside{
+        width: 200px;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    footer{
+        width: 80%;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .info-items img {
+        width: 100%;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+    }
+
+    .search-bar button{
+        width: 200px;
+        font-size: 1.2rem;
+    }
+
+    .info-items {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+        justify-content: center;
+        width: 300px;
+        margin: 5px;
+        padding: 1rem;
+        border-radius: 15px;
+    }
+    
+    .info-items img {
+        width: 50%;
+        max-width: 150px;
+        margin-bottom: 1rem;
+    }
+    
+    .item-icon {
+        padding: 0;
+        margin: 0;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .info-items p,
+    .info-items ul,
+    .info-items ul li,
+    .info-items a {
+        width: 100%;
+        padding: 15px;
+        margin: 0;
+    }
+    
+    .info-items ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        width: 20%;
+    }
+    
+    .info-items li {
+        text-align: left;
+        margin-left: 1rem;
+    }
+    
+    .info-items a {
+        text-decoration: none;
+        color: #ffffff;
+    }
+
+    .fullauto, .nofullauto{
+        width: 50px;
+    }
+
+
+
+    .product-info, .type, .brand-info article {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .sort {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 0%;
+        width: 300px;
+        padding: 10px;
+    }
+
+    .sort input {
+        width: 100%;
+    }
+
+    .sort form button {
+        width: 10%;
+    }
+
+    .landingspage {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .landingspage a {
+        margin: 5px;
+    }
+
+    .sort, .hamburger-items{
+        width: 320px;
+    }
+
+    .product-main , .product-info{
+        width: 80%;
+        padding: 0px;
+        margin: 0%;
+    }
+
+    .product-info{
+        width: 300px;
+    }
+}
+
 
 @media (max-width: 320px) {
 
