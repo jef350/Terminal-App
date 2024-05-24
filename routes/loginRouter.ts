@@ -1,7 +1,7 @@
 import express from 'express';
 import { login } from '../database';
 import { User } from '../types';
-import { checkNotAuthenticated } from '../secureMiddleware'; // Import the middleware
+import { checkNotAuthenticated } from '../secureMiddleware'; 
 
 export const loginRouter = () => {
     const router = express.Router();

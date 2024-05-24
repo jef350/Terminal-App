@@ -82,15 +82,15 @@ export async function loadairsoftFromApi() {
     try {
         const airsofting: airsoft[] = await getairsoftdata();
         if (airsofting.length === 0) {
-            console.log("Database is empty, loading airsoft data from API");
+            console.log("database is leeg. inladen api");
             const filePath = path.resolve(__dirname, 'data', 'airsoft.json');
             const data = await fs.readFile(filePath, 'utf-8');
             const airsofters: airsoft[] = JSON.parse(data);
             await airsoftcollection.insertMany(airsofters);
-            console.log("Airsoft data successfully loaded into the database.");
+            console.log("data ingeladen");
         }
     } catch (error) {
-        console.error("Failed to load airsoft data:", error);
+        console.error("data niet kunnen inladen:", error);
     }
 }
 
@@ -98,15 +98,15 @@ export async function loadmanufacturerFromApi() {
     try {
         const manufacturer: manufacturer[] = await getmanufacturerdata();
         if (manufacturer.length === 0) {
-            console.log("Database is empty, loading manufacturer data from API");
+            console.log("database is leeg. inladen api");
             const filePath = path.resolve(__dirname, 'data', 'Manufacturer.json');
             const data = await fs.readFile(filePath, 'utf-8');
             const manu: manufacturer[] = JSON.parse(data);
             await manufacturercollection.insertMany(manu);
-            console.log("Manufacturer data successfully loaded into the database.");
+            console.log("data ingeladen");
         }
     } catch (error) {
-        console.error("Failed to load manufacturer data:", error);
+        console.error("data niet kunnen inladen:", error);
     }
 }
 
@@ -122,9 +122,9 @@ export async function clearDatabase() {
     try {
         await airsoftcollection.deleteMany({});
         await manufacturercollection.deleteMany({});
-        console.log("Database collections cleared successfully.");
+        console.log("database succesvol leeg gemaakt");
     } catch (error) {
-        console.error("Failed to clear database collections:", error);
+        console.error("database niet kunnen leegmaken:", error);
     }
 }
 
@@ -151,9 +151,9 @@ async function createInitialUser() {
             role: "ADMIN"
         };
         await userCollection.insertOne(admin);
-        console.log('Admin user created:', adminEmail);
+        console.log('Admin user gemaakt:', adminEmail);
     } else {
-        console.log('Admin user already exists:', adminEmail);
+        console.log('Admin user bestaat al:', adminEmail);
     }
 
     if (!userExists) {
@@ -164,24 +164,24 @@ async function createInitialUser() {
             role: "USER"
         };
         await userCollection.insertOne(user);
-        console.log('Default user created:', userEmail);
+        console.log('Default user gemaakt:', userEmail);
     } else {
-        console.log('Default user already exists:', userEmail);
+        console.log('Default user bestaat al:', userEmail);
     }
 }
 
 export async function login(email: string, password: string): Promise<User | null> {
     if (!email || !password) {
-        throw new Error("Email and password required");
+        throw new Error("Email and passwoord verplicht");
     }
-    console.log(`Searching for user with email: ${email}`);
+    console.log(`zoeken voor email: ${email}`);
     const user: User | null = await userCollection.findOne({ email: email });
-    console.log(`User found: ${user !== null}`);
+    console.log(`User gevonden: ${user !== null}`);
     if (user && user.password && await bcrypt.compare(password, user.password)) {
-        console.log(`Password match for user: ${email}`);
+        console.log(`wachtwoord overeenkomst: ${email}`);
         return user;
     }
-    console.log(`User not found or incorrect password for: ${email}`);
+    console.log(`User gebruiker niet gevonden of verkeerd passwoord: ${email}`);
     return null;
 }
 
@@ -191,10 +191,10 @@ export async function connect() {
         await createInitialUser();
         await loadairsoftFromApi();
         await loadmanufacturerFromApi();
-        console.log(`Connected to database at ${MONGODB_URI}`);
+        console.log(`geconnecteerd mlet database ${MONGODB_URI}`);
         process.on("SIGINT", exit);
     } catch (error) {
-        console.error('Database connection error:', error);
+        console.error('database connectie error:', error);
     }
 }
 
@@ -204,7 +204,7 @@ async function exit() {
         await client.close();
         console.log("Disconnected from database");
     } catch (error) {
-        console.error("Failed to disconnect from database:", error);
+        console.error(" disconnect from database niet:", error);
     }
     process.exit(0);
 }

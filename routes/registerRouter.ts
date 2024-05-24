@@ -2,8 +2,7 @@ import express, { Request, Response } from 'express';
 import { userCollection } from '../database';
 import bcrypt from 'bcrypt';
 import { User } from '../types';
-import { checkNotAuthenticated } from '../secureMiddleware'; // Import the middleware
-
+import { checkNotAuthenticated } from '../secureMiddleware'; 
 export const registerRouter = () => {
     const router = express.Router();
     const saltRounds = 10;

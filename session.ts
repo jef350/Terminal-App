@@ -14,7 +14,7 @@ const store = new MongoDBStore({
 declare module 'express-session' {
     interface SessionData {
       message?: string;
-      user?: import('./types').User; // Assuming `User` type is defined in `types.ts`
+      user?: import('./types').User; 
     }
   }
 
@@ -24,6 +24,6 @@ export default session({
     saveUninitialized: false,
     store: store,
     cookie: {
-        maxAge: 1000 * 60 * 60 * 24, // 1 day
+        maxAge: 1000 * 60 * 60 * 24, 
     },
 });
