@@ -623,6 +623,8 @@ footer {
 
     .product-main{
         width: 724px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .product-info, .type, .brand-info article {
