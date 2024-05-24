@@ -553,10 +553,6 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    main{
-        margin-right: 200px;
-    }
-
     aside{
         width: 200px;
     }
